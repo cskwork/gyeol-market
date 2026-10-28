@@ -1,0 +1,12 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`io.github.cskwork.lunepick.cart`
+|Spring components
+|_Services_
+
+* `i.g.c.l.c.CartApi` (via `i.g.c.l.c.internal.application.CartService`)
+|Bean references
+|* `i.g.c.l.c.CatalogStockApi` (in Catalog) -- Prices include the option surcharge; reservations join the caller's transaction.
+* `i.g.c.l.c.CatalogApi` (in Catalog) -- The catalog's immutable read contract for other application modules.
+|===

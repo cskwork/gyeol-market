@@ -1,0 +1,9 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`io.github.cskwork.lunepick.address`
+|Spring components
+|_Services_
+
+* `i.g.c.l.a.AddressApi` (via `i.g.c.l.a.internal.application.AddressService`)
+|===

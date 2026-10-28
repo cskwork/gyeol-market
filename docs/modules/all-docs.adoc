@@ -1,0 +1,43 @@
+== LunepickApplication
+plantuml::components.puml[,,format=svg]
+
+== Shared
+plantuml::module-shared.puml[,,format=svg]
+include::module-shared.adoc[]
+
+== Address
+plantuml::module-address.puml[,,format=svg]
+include::module-address.adoc[]
+
+== Catalog
+plantuml::module-catalog.puml[,,format=svg]
+include::module-catalog.adoc[]
+
+== Member
+plantuml::module-member.puml[,,format=svg]
+include::module-member.adoc[]
+
+== Cart
+plantuml::module-cart.puml[,,format=svg]
+include::module-cart.adoc[]
+
+== Coupon
+plantuml::module-coupon.puml[,,format=svg]
+include::module-coupon.adoc[]
+
+== Search
+plantuml::module-search.puml[,,format=svg]
+include::module-search.adoc[]
+
+== Wishlist
+plantuml::module-wishlist.puml[,,format=svg]
+include::module-wishlist.adoc[]
+
+== Order
+plantuml::module-order.puml[,,format=svg]
+include::module-order.adoc[]
+
+== Payment
+plantuml::module-payment.puml[,,format=svg]
+include::module-payment.adoc[]
+
