@@ -110,7 +110,7 @@ Results of one full run on **2026-10-28** (uncommitted working tree on `feat/bac
 
 Coverage is gated on the `internal/application`, `domain`, `persistence`, `infrastructure` and `maintenance` packages (see `pom.xml`). No test uses Docker or Testcontainers.
 
-CI ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)) runs `./mvnw -B verify` and the frontend checks (`npm ci`, `npm audit`, typecheck, tests, both builds) on pull requests and on pushes to `main`. It has not run yet, so no CI result is claimed here.
+CI ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)) runs `./mvnw -B verify` and the frontend checks (`npm ci`, `npm audit`, typecheck, tests, both builds) on pull requests and on pushes to `main`. First run on ubuntu-latest (2026-10-28, [run 40644451995](https://github.com/cskwork/gyeol-market/actions/runs/40644451995)): backend 366 tests, 0 failures, on the pinned linux-amd64 PostgreSQL 14.22.0 binaries; frontend checks passed.
 
 ## Limitations
 
