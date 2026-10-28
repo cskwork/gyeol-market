@@ -147,6 +147,17 @@
   text-align: center;
 }
 
+/* Success notice (e.g. after sign-up) */
+.successNotice {
+  padding: var(--space-4);
+  background: var(--action-tint);
+  border: 1px solid var(--action);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: var(--action-strong);
+  text-align: center;
+}
+
 /* Footer link */
 .footer {
   text-align: center;

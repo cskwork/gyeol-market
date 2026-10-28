@@ -47,12 +47,14 @@ function CartItemRow({ item, onUpdateQty, onRemove, isUpdating }: CartItemRowPro
   const maxQty = item.availableQuantity ?? 99
   const hue = nameHue(item.productName)
   const initial = item.productName.charAt(0)
+  // Newer cart responses carry productId/thumbnailUrl; older demo state falls back to the seed.
   const demoProduct = IS_DEMO ? DEMO_PRODUCTS.find((product) => product.options.some((option) => option.id === item.productOptionId)) : null
-  const image = demoProduct?.images[0]
+  const productId = typeof item.productId === 'number' ? item.productId : demoProduct?.id
+  const image = (typeof item.thumbnailUrl === 'string' && item.thumbnailUrl) || demoProduct?.images[0]
 
   return (
     <li className={styles.itemRow} aria-label={`${item.productName}${item.optionName ? ' ' + item.optionName : ''}`}>
-      {/* Thumbnail: colored initial avatar — API does not return thumbnailUrl on cart items */}
+      {/* Thumbnail: product image, or a colored initial avatar when the line has none */}
       <div
         className={styles.thumb}
         aria-hidden="true"
@@ -65,7 +67,7 @@ function CartItemRow({ item, onUpdateQty, onRemove, isUpdating }: CartItemRowPro
       </div>
 
       <div className={styles.itemInfo}>
-        {demoProduct ? <Link to={`/products/${demoProduct.id}`} className={styles.itemName}>{item.productName}</Link> : <p className={styles.itemName}>{item.productName}</p>}
+        {productId !== undefined ? <Link to={`/products/${productId}`} className={styles.itemName}>{item.productName}</Link> : <p className={styles.itemName}>{item.productName}</p>}
         {item.optionName && (
           <p className={styles.itemOption}>{item.optionName}</p>
         )}

@@ -248,24 +248,22 @@ function ProductDetailView() {
     .map((img) => ({ url: img.url, alt: product.productName }))
 
   const hasOptions = product.options.length > 0
+  const primaryCategory = product.categories[0]
 
   return (
     <div className={styles.page}>
       <div className="app-container">
-        {/* Breadcrumb */}
-        {product.categories.length > 0 && (
+        {/* Breadcrumb: product.categories lists every category the product belongs to
+            (siblings, not a path), so show only the primary (first) one. */}
+        {primaryCategory && (
           <nav className={styles.breadcrumb} aria-label="카테고리 경로">
             <Link to="/" className={styles.breadcrumbLink}>홈</Link>
-            {product.categories.map((cat, i) => (
-              <span key={cat.categoryId} className={styles.breadcrumbItem}>
-                <span className={styles.breadcrumbSep} aria-hidden="true">/</span>
-                {i === product.categories.length - 1 ? (
-                  <span className={styles.breadcrumbCurrent}>{cat.categoryName}</span>
-                ) : (
-                  <span className={styles.breadcrumbLink}>{cat.categoryName}</span>
-                )}
-              </span>
-            ))}
+            <span className={styles.breadcrumbItem}>
+              <span className={styles.breadcrumbSep} aria-hidden="true">/</span>
+              <Link to={`/category/${primaryCategory.categoryId}`} className={styles.breadcrumbLink}>
+                {primaryCategory.categoryName}
+              </Link>
+            </span>
           </nav>
         )}
 

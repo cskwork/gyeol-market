@@ -32,11 +32,6 @@
   align-items: center;
 }
 
-.breadcrumbCurrent {
-  color: var(--ink-900);
-  font-weight: var(--fw-medium);
-}
-
 /* Main layout: stacked mobile, side-by-side desktop */
 .layout {
   display: grid;
