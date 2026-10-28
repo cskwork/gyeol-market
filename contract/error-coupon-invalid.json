@@ -1,0 +1,25 @@
+{
+  "method": "POST",
+  "path": "/api/orders",
+  "status": 400,
+  "request": {
+    "items": [
+      {
+        "productOptionId": 4,
+        "quantity": 2
+      }
+    ],
+    "couponId": 999999,
+    "usePointAmount": 1000,
+    "deliveryAddressId": 10001
+  },
+  "body": {
+    "success": false,
+    "error": {
+      "code": "COUPON_INVALID",
+      "message": "사용할 수 없는 쿠폰입니다.",
+      "path": "/api/orders",
+      "traceId": "contract-trace-id"
+    }
+  }
+}

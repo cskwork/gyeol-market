@@ -1,0 +1,27 @@
+{
+  "method": "GET",
+  "path": "/api/search/products?keyword=%EC%84%A0%ED%81%AC%EB%A6%BC&page=0&size=20",
+  "status": 200,
+  "body": {
+    "success": true,
+    "data": [
+      {
+        "productId": 1,
+        "brandName": "새봄담",
+        "productName": "키즈 매일 선크림 SPF50+ PA++++",
+        "salePrice": 20000,
+        "originalPrice": 25000,
+        "discountRate": 20,
+        "thumbnailUrl": "/images/products/saebomdam-kids-suncream-spf50-thumb.png",
+        "rating": 0,
+        "reviewCount": 0,
+        "inStock": true
+      }
+    ],
+    "meta": {
+      "page": 0,
+      "size": 20,
+      "total": 1
+    }
+  }
+}

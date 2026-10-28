@@ -104,6 +104,9 @@ export interface CartItem {
   quantity: number
   lineSubtotal: number
   productStatus: string
+  // Added to GET /api/cart later; older backends omit them.
+  productId?: number | null
+  thumbnailUrl?: string | null
 }
 
 export interface CartResponse {
@@ -269,6 +272,8 @@ export interface MySummary {
   usableCouponCount: number
   totalOrderCount: number
   gradeName: string
+  // Member display name; older backends omit it.
+  name?: string | null
 }
 
 // --- Order list (GET /api/orders) ----------------------------------------------

@@ -1,0 +1,28 @@
+{
+  "method": "GET",
+  "path": "/api/cart",
+  "status": 200,
+  "body": {
+    "success": true,
+    "data": {
+      "items": [
+        {
+          "cartItemId": 10001,
+          "productOptionId": 4,
+          "optionName": "기본",
+          "productName": "카밍 시카 진정 크림 70ml",
+          "salePrice": 25200,
+          "onSale": true,
+          "availableQuantity": null,
+          "quantity": 2,
+          "lineSubtotal": 50400,
+          "productStatus": "ON_SALE",
+          "productId": 3,
+          "thumbnailUrl": "/images/products/dermaharang-calming-cica-cream-70ml.png"
+        }
+      ],
+      "totalItemCount": 2,
+      "totalAmount": 50400
+    }
+  }
+}

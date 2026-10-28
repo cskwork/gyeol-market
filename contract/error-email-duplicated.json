@@ -1,0 +1,19 @@
+{
+  "method": "POST",
+  "path": "/api/auth/signup",
+  "status": 409,
+  "request": {
+    "email": "contract@example.com",
+    "password": "fixture-password-not-valid",
+    "name": "계약 검증 회원"
+  },
+  "body": {
+    "success": false,
+    "error": {
+      "code": "EMAIL_DUPLICATED",
+      "message": "이미 가입된 이메일입니다.",
+      "path": "/api/auth/signup",
+      "traceId": "contract-trace-id"
+    }
+  }
+}

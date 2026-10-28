@@ -40,6 +40,7 @@ function demoImages(): Plugin {
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
   const demo = (process.env.VITE_DEMO ?? env.VITE_DEMO) === '1'
+  const proxyTarget = process.env.VITE_API_PROXY_TARGET ?? env.VITE_API_PROXY_TARGET ?? 'http://localhost:8080'
 
   return {
     base: demo ? '/' : '/app/',
@@ -61,12 +62,15 @@ export default defineConfig(({ mode }) => {
       proxy: demo
         ? undefined
         : {
-            '/api': { target: 'http://localhost:8080', changeOrigin: true },
-            '/images': { target: 'http://localhost:8080', changeOrigin: true },
+            '/api': { target: proxyTarget, changeOrigin: true },
+            '/images': { target: proxyTarget, changeOrigin: true },
           },
     },
     test: {
       environment: 'jsdom',
+      // Shared JSON fixtures can be added without changing the importing test.
+      // Vitest 5's persisted transform cache otherwise reuses the old glob list.
+      fsModuleCache: false,
     },
   }
 })

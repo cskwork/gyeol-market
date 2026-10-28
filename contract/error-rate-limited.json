@@ -1,0 +1,28 @@
+{
+  "method": "POST",
+  "path": "/api/orders",
+  "status": 429,
+  "request": {
+    "items": [
+      {
+        "productOptionId": 4,
+        "quantity": 2
+      }
+    ],
+    "couponId": 10002,
+    "usePointAmount": 1000,
+    "deliveryAddressId": 10001
+  },
+  "body": {
+    "success": false,
+    "error": {
+      "code": "RATE_LIMITED",
+      "message": "요청이 너무 많습니다. 잠시 후 다시 시도해주세요.",
+      "path": "/api/orders",
+      "traceId": "contract-trace-id"
+    }
+  },
+  "expectedHeaders": {
+    "Retry-After": "1"
+  }
+}

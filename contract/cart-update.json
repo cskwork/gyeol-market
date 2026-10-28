@@ -1,0 +1,11 @@
+{
+  "method": "PATCH",
+  "path": "/api/cart/items/10001",
+  "status": 200,
+  "request": {
+    "quantity": 2
+  },
+  "body": {
+    "success": true
+  }
+}

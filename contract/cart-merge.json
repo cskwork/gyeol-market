@@ -1,0 +1,14 @@
+{
+  "method": "POST",
+  "path": "/api/cart/merge",
+  "status": 200,
+  "request": {
+    "sessionId": "contract-anonymous-session"
+  },
+  "body": {
+    "success": true,
+    "data": {
+      "mergedItemCount": 0
+    }
+  }
+}

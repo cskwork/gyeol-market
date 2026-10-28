@@ -1,0 +1,14 @@
+{
+  "method": "GET",
+  "path": "/api/orders/CONTRACT-MISSING",
+  "status": 404,
+  "body": {
+    "success": false,
+    "error": {
+      "code": "ORDER_NOT_FOUND",
+      "message": "주문을 찾을 수 없습니다.",
+      "path": "/api/orders/CONTRACT-MISSING",
+      "traceId": "contract-trace-id"
+    }
+  }
+}

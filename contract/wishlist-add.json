@@ -1,0 +1,11 @@
+{
+  "method": "POST",
+  "path": "/api/me/wishlist",
+  "status": 200,
+  "request": {
+    "productId": 3
+  },
+  "body": {
+    "success": true
+  }
+}

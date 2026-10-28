@@ -1,0 +1,19 @@
+{
+  "method": "GET",
+  "path": "/api/me/addresses",
+  "status": 200,
+  "body": {
+    "success": true,
+    "data": [
+      {
+        "id": 10001,
+        "recipientName": "계약 테스트",
+        "phone": "010-0000-0000",
+        "zipcode": "04500",
+        "addressMain": "서울시 계약 테스트로 1",
+        "addressDetail": null,
+        "isDefault": true
+      }
+    ]
+  }
+}

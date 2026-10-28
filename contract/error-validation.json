@@ -1,0 +1,26 @@
+{
+  "method": "POST",
+  "path": "/api/auth/signup",
+  "status": 400,
+  "request": {
+    "email": "contract@example.com",
+    "password": "short",
+    "name": "계약 검증 회원"
+  },
+  "body": {
+    "success": false,
+    "error": {
+      "code": "VALIDATION_FAILED",
+      "message": "입력값을 확인해주세요.",
+      "path": "/api/auth/signup",
+      "traceId": "contract-trace-id",
+      "fieldErrors": [
+        {
+          "field": "password",
+          "message": "size must be between 8 and 256",
+          "rejectedValue": null
+        }
+      ]
+    }
+  }
+}

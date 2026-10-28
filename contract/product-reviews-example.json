@@ -1,0 +1,26 @@
+{
+  "method": "GET",
+  "path": "/api/products/1/reviews?sort=latest&page=0&size=5",
+  "status": 200,
+  "body": {
+    "success": true,
+    "data": [
+      {
+        "id": 10001,
+        "productId": 1,
+        "rating": 4,
+        "title": "계약 검증용 리뷰",
+        "body": "테스트에서 생성하는 합성 리뷰입니다.",
+        "imageUrls": [
+          "/images/products/saebomdam-kids-suncream-detail-1.png"
+        ],
+        "createdAt": "2026-10-28T00:00:00Z"
+      }
+    ],
+    "meta": {
+      "page": 0,
+      "size": 5,
+      "total": 1
+    }
+  }
+}

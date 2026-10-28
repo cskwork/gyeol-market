@@ -1,0 +1,25 @@
+{
+  "method": "POST",
+  "path": "/api/orders",
+  "status": 400,
+  "request": {
+    "items": [
+      {
+        "productOptionId": 4,
+        "quantity": 2
+      }
+    ],
+    "couponId": 10002,
+    "usePointAmount": 1000,
+    "deliveryAddressId": 10001
+  },
+  "body": {
+    "success": false,
+    "error": {
+      "code": "IDEMPOTENCY_KEY_REQUIRED",
+      "message": "Idempotency-Key 헤더가 필요합니다.",
+      "path": "/api/orders",
+      "traceId": "contract-trace-id"
+    }
+  }
+}

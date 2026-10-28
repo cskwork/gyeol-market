@@ -1,0 +1,17 @@
+{
+  "method": "POST",
+  "path": "/api/auth/login",
+  "status": 200,
+  "request": {
+    "email": "contract@example.com",
+    "password": "fixture-password-not-valid"
+  },
+  "body": {
+    "success": true,
+    "data": {
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZml4dHVyZSI6dHJ1ZX0.fixture-signature-not-valid",
+      "refreshToken": "contract-refresh-token-not-valid",
+      "expiresInSec": 1800
+    }
+  }
+}

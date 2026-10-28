@@ -1,0 +1,14 @@
+{
+  "method": "POST",
+  "path": "/api/auth/logout",
+  "status": 401,
+  "body": {
+    "success": false,
+    "error": {
+      "code": "UNAUTHORIZED",
+      "message": "로그인이 필요합니다.",
+      "path": "/api/auth/logout",
+      "traceId": "contract-trace-id"
+    }
+  }
+}

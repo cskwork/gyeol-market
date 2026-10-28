@@ -1,0 +1,13 @@
+{
+  "method": "GET",
+  "path": "/api/search/autocomplete?prefix=%EC%84%A0&size=10",
+  "status": 200,
+  "body": {
+    "success": true,
+    "data": {
+      "suggestions": [
+        "키즈 매일 선크림 SPF50+ PA++++"
+      ]
+    }
+  }
+}

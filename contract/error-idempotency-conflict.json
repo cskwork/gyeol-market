@@ -1,0 +1,25 @@
+{
+  "method": "POST",
+  "path": "/api/orders",
+  "status": 409,
+  "request": {
+    "items": [
+      {
+        "productOptionId": 4,
+        "quantity": 2
+      }
+    ],
+    "couponId": 10002,
+    "usePointAmount": 0,
+    "deliveryAddressId": 10001
+  },
+  "body": {
+    "success": false,
+    "error": {
+      "code": "IDEMPOTENCY_CONFLICT",
+      "message": "같은 키에 다른 주문 요청을 사용할 수 없습니다.",
+      "path": "/api/orders",
+      "traceId": "contract-trace-id"
+    }
+  }
+}

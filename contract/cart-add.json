@@ -1,0 +1,16 @@
+{
+  "method": "POST",
+  "path": "/api/cart/items",
+  "status": 201,
+  "request": {
+    "productOptionId": 4,
+    "quantity": 2
+  },
+  "body": {
+    "success": true,
+    "data": {
+      "cartItemId": 10001,
+      "quantity": 2
+    }
+  }
+}

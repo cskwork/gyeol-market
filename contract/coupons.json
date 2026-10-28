@@ -1,0 +1,43 @@
+{
+  "method": "GET",
+  "path": "/api/me/coupons",
+  "status": 200,
+  "body": {
+    "success": true,
+    "data": [
+      {
+        "id": 10001,
+        "couponId": 1,
+        "status": "ISSUED",
+        "issuedAt": "2026-10-28T00:00:00Z",
+        "expiresAt": "2027-01-26T00:00:00Z",
+        "couponName": "신규 회원 3000원 쿠폰",
+        "discountType": "FIXED_AMOUNT",
+        "discountValue": 3000,
+        "minOrderAmount": 10000
+      },
+      {
+        "id": 10002,
+        "couponId": 2,
+        "status": "USED",
+        "issuedAt": "2026-10-28T00:00:00Z",
+        "expiresAt": "2027-01-26T00:00:00Z",
+        "couponName": "10% 할인 쿠폰",
+        "discountType": "PERCENTAGE",
+        "discountValue": 10,
+        "minOrderAmount": 30000
+      },
+      {
+        "id": 10003,
+        "couponId": 3,
+        "status": "ISSUED",
+        "issuedAt": "2026-10-28T00:00:00Z",
+        "expiresAt": "2027-01-26T00:00:00Z",
+        "couponName": "무료 배송 쿠폰",
+        "discountType": "FREE_SHIPPING",
+        "discountValue": 0,
+        "minOrderAmount": 15000
+      }
+    ]
+  }
+}
