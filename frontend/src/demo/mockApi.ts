@@ -244,6 +244,8 @@ function cartView(s: DemoState, memberId: number) {
       quantity: line.quantity,
       lineSubtotal: unit * line.quantity,
       productStatus: 'ON_SALE',
+      productId: found.product.id,
+      thumbnailUrl: found.product.images[0] ?? null,
     }]
   })
   return {
@@ -533,6 +535,7 @@ function route(s: DemoState, method: string, path: string, q: URLSearchParams, b
       usableCouponCount: (s.coupons[me.id] ?? []).filter((c) => c.status === 'ISSUED').length,
       totalOrderCount: s.orders.filter((o) => o.memberId === me.id && o.status === 'PAID').length,
       gradeName: 'BRONZE',
+      name: me.name,
     })
   }
   if (path === '/me/wishlist') {

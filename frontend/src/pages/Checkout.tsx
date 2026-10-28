@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { fetchCart } from '@/lib/cart'
-import { fetchAddresses, createOrder, confirmPayment, createAddress } from '@/lib/orders'
+import { fetchAddresses, createOrder, confirmPayment, createAddress, insufficientPointsMessage } from '@/lib/orders'
 import { getMySummary } from '@/lib/mypage'
 import { apiGet, ApiError } from '@/lib/api'
 import { useRequireAuth } from '@/lib/useRequireAuth'
@@ -141,11 +141,14 @@ export default function Checkout() {
   const selectedCoupon = coupons?.find((c) => c.id === selectedCouponId && c.status === 'ISSUED' &&
     (c.minOrderAmount === null || productAmount >= c.minOrderAmount) &&
     (!c.expiresAt || new Date(c.expiresAt).getTime() > Date.now())) ?? null
-  // The standalone demo supports shipping coupons locally. The backend's
-  // current OrderPricingCalculator has no shipping-coupon branch.
-  const shippingFee = IS_DEMO && selectedCoupon?.discountType === 'FREE_SHIPPING' ? 0 : baseShippingFee
+  // A FREE_SHIPPING coupon waives the shipping fee (OrderPricing's freeShipping
+  // flag; the demo mock does the same). The summary keeps the fee on its own row
+  // and shows the waived amount as the coupon discount, like other coupons.
+  const shippingFee = baseShippingFee
   const couponDiscount = selectedCoupon
-    ? calcCouponDiscount(selectedCoupon, productAmount)
+    ? selectedCoupon.discountType === 'FREE_SHIPPING'
+      ? baseShippingFee
+      : calcCouponDiscount(selectedCoupon, productAmount)
     : 0
 
   const pointBalance = mySummary?.pointBalance ?? 0
@@ -218,6 +221,13 @@ export default function Checkout() {
       navigate(`/orders/${encodeURIComponent(orderNo)}`, { replace: true })
     },
     onError: (err: unknown) => {
+      if (err instanceof ApiError && err.code === 'INSUFFICIENT_POINTS') {
+        // The balance may have changed since the page loaded: reload it so the
+        // inline check below the input reflects the server's current balance.
+        void queryClient.invalidateQueries({ queryKey: ['my-summary'] })
+        setGlobalError(insufficientPointsMessage(usePointAmount, orderSubtotal))
+        return
+      }
       const msg =
         err instanceof ApiError
           ? err.message
@@ -529,18 +539,17 @@ export default function Checkout() {
                         const meetsMin =
                           coupon.minOrderAmount === null ||
                           productAmount >= coupon.minOrderAmount
-                        const supported = IS_DEMO || coupon.discountType !== 'FREE_SHIPPING'
                         return (
                           <li key={coupon.id}>
                             <button
                               type="button"
                               className={`${styles.couponOption} ${isSelected ? styles.couponOptionSelected : ''} ${!meetsMin ? styles.couponOptionDisabled : ''}`}
                               onClick={() => {
-                                if (!meetsMin || !supported) return
+                                if (!meetsMin) return
                                 setSelectedCouponId(coupon.id)
                                 setShowCouponPanel(false)
                               }}
-                              disabled={!meetsMin || !supported}
+                              disabled={!meetsMin}
                               aria-pressed={isSelected}
                             >
                               <div className={styles.couponOptionRow}>
@@ -554,7 +563,6 @@ export default function Checkout() {
                                   {formatKrw(coupon.minOrderAmount)} 이상 주문 시 사용 가능
                                 </p>
                               )}
-                              {!supported && <p className={styles.couponMinNote}>이 쿠폰은 현재 사용할 수 없습니다.</p>}
                             </button>
                           </li>
                         )

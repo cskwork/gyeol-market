@@ -1,0 +1,17 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Description
+|Immutable checkout snapshots and atomic order reservations.
+|Base package
+|`io.github.cskwork.lunepick.order`
+|Spring components
+|_Services_
+
+* `i.g.c.l.o.OrderApi` (via `i.g.c.l.o.internal.application.OrderService`)
+|Bean references
+|* `i.g.c.l.m.MemberApi` (in Member) -- Public member lookup boundary for other application modules.
+* `i.g.c.l.c.CatalogStockApi` (in Catalog) -- Prices include the option surcharge; reservations join the caller's transaction.
+* `i.g.c.l.c.CouponApi` (in Coupon) -- Member coupon ownership and order reservation contract.
+* `i.g.c.l.a.AddressApi` (in Address) -- An immutable delivery address snapshot scoped to its owner.
+* `i.g.c.l.c.CartApi` (in Cart) -- Cart ownership and checkout cleanup, without exposing persistence.
+|===

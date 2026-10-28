@@ -1,0 +1,25 @@
+{
+  "method": "GET",
+  "path": "/api/me/wishlist?page=0&size=20",
+  "status": 200,
+  "body": {
+    "success": true,
+    "data": [
+      {
+        "wishlistId": 10001,
+        "productId": 3,
+        "productName": "카밍 시카 진정 크림 70ml",
+        "brandName": "더마하랑",
+        "thumbnailUrl": "/images/products/dermaharang-calming-cica-cream-70ml.png",
+        "salePrice": 25200,
+        "originalPrice": 36000,
+        "discountRate": 30
+      }
+    ],
+    "meta": {
+      "page": 0,
+      "size": 20,
+      "total": 1
+    }
+  }
+}

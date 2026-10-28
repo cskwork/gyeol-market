@@ -1,0 +1,16 @@
+{
+  "method": "POST",
+  "path": "/api/auth/refresh",
+  "status": 200,
+  "request": {
+    "refreshToken": "contract-refresh-token-not-valid"
+  },
+  "body": {
+    "success": true,
+    "data": {
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZml4dHVyZSI6dHJ1ZX0.fixture-signature-not-valid",
+      "refreshToken": "contract-refresh-token-not-valid",
+      "expiresInSec": 1800
+    }
+  }
+}

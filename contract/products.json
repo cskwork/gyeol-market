@@ -1,0 +1,27 @@
+{
+  "method": "GET",
+  "path": "/api/products?sort=PRICE_ASC&page=0&size=1",
+  "status": 200,
+  "body": {
+    "success": true,
+    "data": [
+      {
+        "productId": 12,
+        "brandName": "새봄담",
+        "productName": "시어버터 핸드크림 3종 세트",
+        "salePrice": 8900,
+        "originalPrice": 12000,
+        "discountRate": 25.8,
+        "thumbnailUrl": "/images/products/saebomdam-sheabutter-handcream-3set.png",
+        "rating": 0,
+        "reviewCount": 0,
+        "inStock": true
+      }
+    ],
+    "meta": {
+      "page": 0,
+      "size": 1,
+      "total": 13
+    }
+  }
+}

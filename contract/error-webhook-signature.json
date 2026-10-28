@@ -1,0 +1,21 @@
+{
+  "method": "POST",
+  "path": "/api/payments/webhook",
+  "status": 401,
+  "request": {
+    "eventId": "contract-payment-event-1",
+    "orderNo": "20261028-CONTRACT-00001",
+    "paymentKey": "10003",
+    "amount": 44360,
+    "status": "CONFIRMED"
+  },
+  "body": {
+    "success": false,
+    "error": {
+      "code": "INVALID_WEBHOOK_SIGNATURE",
+      "message": "웹훅 서명이 올바르지 않습니다.",
+      "path": "/api/payments/webhook",
+      "traceId": "contract-trace-id"
+    }
+  }
+}

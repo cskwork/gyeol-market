@@ -1,0 +1,19 @@
+{
+  "method": "POST",
+  "path": "/api/payments/webhook",
+  "status": 200,
+  "request": {
+    "eventId": "contract-payment-event-1",
+    "orderNo": "20261028-CONTRACT-00001",
+    "paymentKey": "10003",
+    "amount": 44360,
+    "status": "CONFIRMED"
+  },
+  "body": {
+    "success": true,
+    "data": {
+      "eventId": "contract-payment-event-1",
+      "processed": true
+    }
+  }
+}

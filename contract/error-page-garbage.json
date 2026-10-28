@@ -1,0 +1,14 @@
+{
+  "method": "GET",
+  "path": "/api/products?page=Infinity",
+  "status": 400,
+  "body": {
+    "success": false,
+    "error": {
+      "code": "INVALID_PARAMETER",
+      "message": "페이지와 크기는 허용 범위의 정수여야 합니다.",
+      "path": "/api/products",
+      "traceId": "contract-trace-id"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "method": "GET",
+  "path": "/api/search/popular?size=10",
+  "status": 200,
+  "body": {
+    "success": true,
+    "data": {
+      "keywords": [
+        {
+          "keyword": "선크림",
+          "rank": 1
+        },
+        {
+          "keyword": "토너",
+          "rank": 2
+        },
+        {
+          "keyword": "마스크팩",
+          "rank": 3
+        },
+        {
+          "keyword": "쿠션",
+          "rank": 4
+        },
+        {
+          "keyword": "샴푸",
+          "rank": 5
+        },
+        {
+          "keyword": "립 틴트",
+          "rank": 6
+        }
+      ]
+    }
+  }
+}

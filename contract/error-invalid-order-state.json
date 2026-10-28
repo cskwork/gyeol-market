@@ -1,0 +1,19 @@
+{
+  "method": "POST",
+  "path": "/api/payments/confirm",
+  "status": 409,
+  "request": {
+    "orderNo": "20261028-CONTRACT-00001",
+    "paymentKey": "10003",
+    "amount": 16000
+  },
+  "body": {
+    "success": false,
+    "error": {
+      "code": "INVALID_ORDER_STATE",
+      "message": "주문 상태를 확인해주세요.",
+      "path": "/api/payments/confirm",
+      "traceId": "contract-trace-id"
+    }
+  }
+}

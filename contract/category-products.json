@@ -1,0 +1,27 @@
+{
+  "method": "GET",
+  "path": "/api/categories/2/products?sort=PRICE_ASC&page=0&size=1",
+  "status": 200,
+  "body": {
+    "success": true,
+    "data": [
+      {
+        "productId": 8,
+        "brandName": "벨로아",
+        "productName": "소프트 매트 립 틴트 로즈",
+        "salePrice": 11200,
+        "originalPrice": 16000,
+        "discountRate": 30,
+        "thumbnailUrl": "/images/products/veloa-soft-matte-lip-tint-rose.png",
+        "rating": 0,
+        "reviewCount": 0,
+        "inStock": true
+      }
+    ],
+    "meta": {
+      "page": 0,
+      "size": 1,
+      "total": 4
+    }
+  }
+}

@@ -1,0 +1,47 @@
+@startuml
+title <size:24>Order</size>
+
+set separator none
+top to bottom direction
+
+<style>
+  root {
+    BackgroundColor: #ffffff
+    FontColor: #444444
+  }
+</style>
+
+!include <C4/C4>
+!include <C4/C4_Context>
+!include <C4/C4_Component>
+
+System_Boundary("LunepickApplication_boundary", "LunepickApplication", $tags="") {
+  Container_Boundary("LunepickApplication.LunepickApplication_boundary", "LunepickApplication", $tags="") {
+    Component(LunepickApplication.LunepickApplication.Order, "Order", $techn="Module", $descr="", $tags="", $link="")
+    Component(LunepickApplication.LunepickApplication.Shared, "Shared", $techn="Module", $descr="", $tags="", $link="")
+    Component(LunepickApplication.LunepickApplication.Address, "Address", $techn="Module", $descr="", $tags="", $link="")
+    Component(LunepickApplication.LunepickApplication.Catalog, "Catalog", $techn="Module", $descr="", $tags="", $link="")
+    Component(LunepickApplication.LunepickApplication.Member, "Member", $techn="Module", $descr="", $tags="", $link="")
+    Component(LunepickApplication.LunepickApplication.Cart, "Cart", $techn="Module", $descr="", $tags="", $link="")
+    Component(LunepickApplication.LunepickApplication.Coupon, "Coupon", $techn="Module", $descr="", $tags="", $link="")
+  }
+
+}
+
+Rel(LunepickApplication.LunepickApplication.Catalog, LunepickApplication.LunepickApplication.Shared, "depends on", $techn="", $tags="", $link="")
+Rel(LunepickApplication.LunepickApplication.Cart, LunepickApplication.LunepickApplication.Shared, "depends on", $techn="", $tags="", $link="")
+Rel(LunepickApplication.LunepickApplication.Cart, LunepickApplication.LunepickApplication.Catalog, "uses", $techn="", $tags="", $link="")
+Rel(LunepickApplication.LunepickApplication.Address, LunepickApplication.LunepickApplication.Shared, "depends on", $techn="", $tags="", $link="")
+Rel(LunepickApplication.LunepickApplication.Member, LunepickApplication.LunepickApplication.Shared, "depends on", $techn="", $tags="", $link="")
+Rel(LunepickApplication.LunepickApplication.Coupon, LunepickApplication.LunepickApplication.Member, "listens to", $techn="", $tags="", $link="")
+Rel(LunepickApplication.LunepickApplication.Coupon, LunepickApplication.LunepickApplication.Shared, "depends on", $techn="", $tags="", $link="")
+Rel(LunepickApplication.LunepickApplication.Order, LunepickApplication.LunepickApplication.Shared, "depends on", $techn="", $tags="", $link="")
+Rel(LunepickApplication.LunepickApplication.Order, LunepickApplication.LunepickApplication.Member, "uses", $techn="", $tags="", $link="")
+Rel(LunepickApplication.LunepickApplication.Order, LunepickApplication.LunepickApplication.Catalog, "uses", $techn="", $tags="", $link="")
+Rel(LunepickApplication.LunepickApplication.Order, LunepickApplication.LunepickApplication.Coupon, "uses", $techn="", $tags="", $link="")
+Rel(LunepickApplication.LunepickApplication.Order, LunepickApplication.LunepickApplication.Address, "uses", $techn="", $tags="", $link="")
+Rel(LunepickApplication.LunepickApplication.Order, LunepickApplication.LunepickApplication.Cart, "uses", $techn="", $tags="", $link="")
+
+SHOW_LEGEND(true)
+hide stereotypes
+@enduml

@@ -1,0 +1,78 @@
+spring:
+  application:
+    name: lunepick
+  threads:
+    virtual:
+      enabled: true
+  datasource:
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 2
+      connection-timeout: 3000
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+  flyway:
+    enabled: true
+  modulith:
+    events:
+      jdbc:
+        schema-initialization:
+          enabled: false
+      republish-outstanding-events-on-restart: false
+      completion-mode: delete
+  task:
+    scheduling:
+      pool:
+        size: 3
+    execution:
+      shutdown:
+        await-termination: true
+        await-termination-period: 10s
+  lifecycle:
+    timeout-per-shutdown-phase: 20s
+server:
+  forward-headers-strategy: native
+  tomcat:
+    remoteip:
+      # Deny forwarded identity until the deployer explicitly names trusted proxy addresses.
+      internal-proxies: '${LUNEPICK_TRUSTED_PROXIES:(?!)}'
+  shutdown: graceful
+  error:
+    include-message: never
+    include-stacktrace: never
+management:
+  server:
+    port: ${LUNEPICK_MANAGEMENT_PORT:-1}
+    address: ${LUNEPICK_MANAGEMENT_ADDRESS:127.0.0.1}
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: never
+logging:
+  structured:
+    format:
+      console: ecs
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+lunepick:
+  async:
+    concurrency: 4
+    queue-capacity: 64
+  auth:
+    audience: lunepick-api
+    refresh-reuse-grace: 3s
+    cleanup:
+      delay: 60s
+      batch-size: 500
+      retention: 1d

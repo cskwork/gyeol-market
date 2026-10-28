@@ -59,7 +59,7 @@ export default function Signup() {
         ...(form.phone ? { phone: form.phone } : {}),
       }
       await apiPost<SignupResponse>('/auth/signup', body)
-      navigate('/login', { state: { signedUp: true } })
+      navigate('/login', { state: { signedUp: true, email: form.email } })
     } catch (err) {
       if (err instanceof ApiError) {
         setGlobalError(err.message)

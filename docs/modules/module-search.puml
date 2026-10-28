@@ -1,0 +1,34 @@
+@startuml
+title <size:24>Search</size>
+
+set separator none
+top to bottom direction
+
+<style>
+  root {
+    BackgroundColor: #ffffff
+    FontColor: #444444
+  }
+</style>
+
+!include <C4/C4>
+!include <C4/C4_Context>
+!include <C4/C4_Component>
+
+System_Boundary("LunepickApplication_boundary", "LunepickApplication", $tags="") {
+  Container_Boundary("LunepickApplication.LunepickApplication_boundary", "LunepickApplication", $tags="") {
+    Component(LunepickApplication.LunepickApplication.Shared, "Shared", $techn="Module", $descr="", $tags="", $link="")
+    Component(LunepickApplication.LunepickApplication.Catalog, "Catalog", $techn="Module", $descr="", $tags="", $link="")
+    Component(LunepickApplication.LunepickApplication.Search, "Search", $techn="Module", $descr="", $tags="", $link="")
+  }
+
+}
+
+Rel(LunepickApplication.LunepickApplication.Catalog, LunepickApplication.LunepickApplication.Shared, "depends on", $techn="", $tags="", $link="")
+Rel(LunepickApplication.LunepickApplication.Search, LunepickApplication.LunepickApplication.Catalog, "listens to", $techn="", $tags="", $link="")
+Rel(LunepickApplication.LunepickApplication.Search, LunepickApplication.LunepickApplication.Shared, "depends on", $techn="", $tags="", $link="")
+Rel(LunepickApplication.LunepickApplication.Search, LunepickApplication.LunepickApplication.Catalog, "uses", $techn="", $tags="", $link="")
+
+SHOW_LEGEND(true)
+hide stereotypes
+@enduml

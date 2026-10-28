@@ -1,0 +1,19 @@
+{
+  "method": "POST",
+  "path": "/api/payments/confirm",
+  "status": 200,
+  "request": {
+    "orderNo": "20261028-CONTRACT-00001",
+    "paymentKey": "10003",
+    "amount": 44360
+  },
+  "body": {
+    "success": true,
+    "data": {
+      "orderId": 10001,
+      "orderNo": "20261028-CONTRACT-00001",
+      "status": "PAID",
+      "paymentKey": "10003"
+    }
+  }
+}

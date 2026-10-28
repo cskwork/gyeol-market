@@ -1,0 +1,15 @@
+logging:
+  structured:
+    format:
+      console: ""
+  level:
+    root: WARN
+    io.zonky.test.db.postgres: WARN
+lunepick:
+  auth:
+    cleanup:
+      enabled: false
+  rate-limit:
+    enabled: false
+  search-index:
+    enabled: false

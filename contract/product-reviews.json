@@ -1,0 +1,14 @@
+{
+  "method": "GET",
+  "path": "/api/products/1/reviews?sort=latest&page=0&size=5",
+  "status": 200,
+  "body": {
+    "success": true,
+    "data": [],
+    "meta": {
+      "page": 0,
+      "size": 5,
+      "total": 0
+    }
+  }
+}

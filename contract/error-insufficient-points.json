@@ -1,0 +1,25 @@
+{
+  "method": "POST",
+  "path": "/api/orders",
+  "status": 400,
+  "request": {
+    "items": [
+      {
+        "productOptionId": 4,
+        "quantity": 2
+      }
+    ],
+    "couponId": 10002,
+    "usePointAmount": 5001,
+    "deliveryAddressId": 10001
+  },
+  "body": {
+    "success": false,
+    "error": {
+      "code": "INSUFFICIENT_POINTS",
+      "message": "보유 포인트 범위 안에서 정수로 입력해주세요.",
+      "path": "/api/orders",
+      "traceId": "contract-trace-id"
+    }
+  }
+}

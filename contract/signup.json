@@ -1,0 +1,16 @@
+{
+  "method": "POST",
+  "path": "/api/auth/signup",
+  "status": 201,
+  "request": {
+    "email": "contract@example.com",
+    "password": "fixture-password-not-valid",
+    "name": "계약 검증 회원"
+  },
+  "body": {
+    "success": true,
+    "data": {
+      "memberId": 1
+    }
+  }
+}

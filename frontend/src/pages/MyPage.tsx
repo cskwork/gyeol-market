@@ -130,6 +130,9 @@ export default function MyPage() {
     )
   }
 
+  // Older backends omit name; fall back to the generic greeting.
+  const memberName = typeof summary.name === 'string' ? summary.name.trim() : ''
+
   return (
     <div className={styles.page}>
       <div className="app-container">
@@ -145,7 +148,7 @@ export default function MyPage() {
             <div className={styles.gradeRow}>
               <GradeBadge grade={summary.gradeName} />
             </div>
-            <p className={styles.welcomeText}>안녕하세요, 회원님!</p>
+            <p className={styles.welcomeText}>안녕하세요, {memberName ? `${memberName}님` : '회원님'}!</p>
           </div>
         </header>
 

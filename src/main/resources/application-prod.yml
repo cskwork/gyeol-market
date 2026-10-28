@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    url: ${LUNEPICK_DB_URL}
+    username: ${LUNEPICK_DB_USER}
+    password: ${LUNEPICK_DB_PASSWORD}
+lunepick:
+  auth:
+    issuer: ${LUNEPICK_AUTH_ISSUER}
+    audience: ${LUNEPICK_AUTH_AUDIENCE:lunepick-api}
+    refresh-cipher:
+      secret: ${LUNEPICK_REFRESH_CIPHER_SECRET}
+    private-key: ${LUNEPICK_AUTH_PRIVATE_KEY}
+    public-key: ${LUNEPICK_AUTH_PUBLIC_KEY}
+  payment:
+    webhook-secret: ${LUNEPICK_PAYMENT_WEBHOOK_SECRET}
+springdoc:
+  swagger-ui:
+    enabled: ${LUNEPICK_SWAGGER_UI_ENABLED:false}
+  api-docs:
+    enabled: ${LUNEPICK_API_DOCS_ENABLED:false}

@@ -1,0 +1,14 @@
+{
+  "method": "GET",
+  "path": "/actuator/env",
+  "status": 403,
+  "body": {
+    "success": false,
+    "error": {
+      "code": "FORBIDDEN",
+      "message": "접근 권한이 없습니다.",
+      "path": "/actuator/env",
+      "traceId": "contract-trace-id"
+    }
+  }
+}

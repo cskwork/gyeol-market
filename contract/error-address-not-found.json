@@ -1,0 +1,25 @@
+{
+  "method": "POST",
+  "path": "/api/orders",
+  "status": 404,
+  "request": {
+    "items": [
+      {
+        "productOptionId": 4,
+        "quantity": 2
+      }
+    ],
+    "couponId": 10002,
+    "usePointAmount": 1000,
+    "deliveryAddressId": 999999
+  },
+  "body": {
+    "success": false,
+    "error": {
+      "code": "ADDRESS_NOT_FOUND",
+      "message": "배송지를 찾을 수 없습니다.",
+      "path": "/api/orders",
+      "traceId": "contract-trace-id"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "method": "POST",
+  "path": "/api/orders",
+  "status": 409,
+  "request": {
+    "items": [
+      {
+        "productOptionId": 4,
+        "quantity": 2
+      }
+    ],
+    "couponId": 10002,
+    "usePointAmount": 1000,
+    "deliveryAddressId": 10001
+  },
+  "body": {
+    "success": false,
+    "error": {
+      "code": "INSUFFICIENT_STOCK",
+      "message": "상품 재고가 부족합니다.",
+      "path": "/api/orders",
+      "traceId": "contract-trace-id"
+    }
+  }
+}

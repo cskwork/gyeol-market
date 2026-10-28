@@ -1,0 +1,8 @@
+{
+  "method": "DELETE",
+  "path": "/api/cart/items/10001",
+  "status": 200,
+  "body": {
+    "success": true
+  }
+}

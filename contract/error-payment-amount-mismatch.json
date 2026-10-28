@@ -1,0 +1,19 @@
+{
+  "method": "POST",
+  "path": "/api/payments/confirm",
+  "status": 422,
+  "request": {
+    "orderNo": "20261028-CONTRACT-00001",
+    "paymentKey": "10003",
+    "amount": 1
+  },
+  "body": {
+    "success": false,
+    "error": {
+      "code": "PAYMENT_AMOUNT_MISMATCH",
+      "message": "결제 금액이 주문 금액과 일치하지 않습니다.",
+      "path": "/api/payments/confirm",
+      "traceId": "contract-trace-id"
+    }
+  }
+}

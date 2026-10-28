@@ -1,0 +1,25 @@
+{
+  "method": "POST",
+  "path": "/api/orders",
+  "status": 200,
+  "request": {
+    "items": [
+      {
+        "productOptionId": 4,
+        "quantity": 2
+      }
+    ],
+    "couponId": 10002,
+    "usePointAmount": 1000,
+    "deliveryAddressId": 10001
+  },
+  "body": {
+    "success": true,
+    "data": {
+      "orderNo": "20261028-CONTRACT-00001",
+      "paymentKey": 10003,
+      "amount": 44360,
+      "pgCheckoutPayload": null
+    }
+  }
+}

@@ -33,6 +33,21 @@ interface RequestOptions {
 // preventing multiple refresh calls that would consume a rotating refresh token.
 let refreshPromise: Promise<boolean> | null = null
 
+/**
+ * Resolves true when the caller may retry with a fresh access token.
+ * `sentToken` is the access token the failed request carried: if the stored
+ * token has changed since, another request already refreshed (its refresh may
+ * have finished before this 401 arrived), so retry without a second refresh.
+ */
+function refreshAfter401(sentToken: string | null): Promise<boolean> {
+  const current = getAccessToken()
+  if (current && current !== sentToken) return Promise.resolve(true)
+  if (!refreshPromise) {
+    refreshPromise = attemptRefresh().finally(() => { refreshPromise = null })
+  }
+  return refreshPromise
+}
+
 async function request<T>(path: string, opts: RequestOptions = {}): Promise<ApiResponse<T>> {
   const token = getAccessToken()
   const res = await apiFetch(`${BASE}${path}`, {
@@ -49,10 +64,7 @@ async function request<T>(path: string, opts: RequestOptions = {}): Promise<ApiR
   // On 401: join or start a single shared refresh, then retry the original request once.
   // Skip for /auth/refresh itself to prevent infinite loops.
   if (res.status === 401 && !path.startsWith('/auth/refresh')) {
-    if (!refreshPromise) {
-      refreshPromise = attemptRefresh().finally(() => { refreshPromise = null })
-    }
-    const refreshed = await refreshPromise
+    const refreshed = await refreshAfter401(token)
     if (refreshed) {
       const newToken = getAccessToken()
       const retryRes = await apiFetch(`${BASE}${path}`, {
@@ -176,18 +188,16 @@ export async function apiPostWithHeaders<T>(
     ...headers,
   })
 
+  const sentToken = getAccessToken()
   const res = await apiFetch(`${BASE}${path}`, {
     method: 'POST',
-    headers: buildHeaders(getAccessToken()),
+    headers: buildHeaders(sentToken),
     body: body !== undefined ? JSON.stringify(body) : undefined,
   })
 
   // On 401: join or start the shared refresh, then retry once.
   if (res.status === 401 && !path.startsWith('/auth/refresh')) {
-    if (!refreshPromise) {
-      refreshPromise = attemptRefresh().finally(() => { refreshPromise = null })
-    }
-    const refreshed = await refreshPromise
+    const refreshed = await refreshAfter401(sentToken)
     if (refreshed) {
       const retryRes = await apiFetch(`${BASE}${path}`, {
         method: 'POST',

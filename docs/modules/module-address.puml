@@ -1,0 +1,30 @@
+@startuml
+title <size:24>Address</size>
+
+set separator none
+top to bottom direction
+
+<style>
+  root {
+    BackgroundColor: #ffffff
+    FontColor: #444444
+  }
+</style>
+
+!include <C4/C4>
+!include <C4/C4_Context>
+!include <C4/C4_Component>
+
+System_Boundary("LunepickApplication_boundary", "LunepickApplication", $tags="") {
+  Container_Boundary("LunepickApplication.LunepickApplication_boundary", "LunepickApplication", $tags="") {
+    Component(LunepickApplication.LunepickApplication.Shared, "Shared", $techn="Module", $descr="", $tags="", $link="")
+    Component(LunepickApplication.LunepickApplication.Address, "Address", $techn="Module", $descr="", $tags="", $link="")
+  }
+
+}
+
+Rel(LunepickApplication.LunepickApplication.Address, LunepickApplication.LunepickApplication.Shared, "depends on", $techn="", $tags="", $link="")
+
+SHOW_LEGEND(true)
+hide stereotypes
+@enduml

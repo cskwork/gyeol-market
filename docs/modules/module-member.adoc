@@ -1,0 +1,9 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`io.github.cskwork.lunepick.member`
+|Spring components
+|_Services_
+
+* `i.g.c.l.m.MemberApi` (via `i.g.c.l.m.internal.application.AuthTransactions` -- Short database transactions; expensive password verification runs in AuthService.)
+|===

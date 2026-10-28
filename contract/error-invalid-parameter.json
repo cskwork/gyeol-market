@@ -1,0 +1,14 @@
+{
+  "method": "GET",
+  "path": "/api/categories/invalid/products",
+  "status": 400,
+  "body": {
+    "success": false,
+    "error": {
+      "code": "INVALID_PARAMETER",
+      "message": "잘못된 카테고리입니다.",
+      "path": "/api/categories/invalid/products",
+      "traceId": "contract-trace-id"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "method": "GET",
+  "path": "/api/orders/20261028-CONTRACT-00001",
+  "status": 200,
+  "body": {
+    "success": true,
+    "data": {
+      "id": 10001,
+      "orderNo": "20261028-CONTRACT-00001",
+      "status": "PAID",
+      "totalProductAmount": 50400,
+      "finalPaymentAmount": 44360,
+      "createdAt": "2026-10-28T00:00:00Z",
+      "discountAmount": 5040,
+      "pointUsedAmount": 1000,
+      "deliveryFee": 0,
+      "items": [
+        {
+          "id": 10002,
+          "productName": "카밍 시카 진정 크림 70ml",
+          "optionName": "기본",
+          "unitPrice": 25200,
+          "quantity": 2,
+          "totalAmount": 50400
+        }
+      ],
+      "delivery": {
+        "recipientName": "계약 테스트",
+        "phone": "010-0000-0000",
+        "zipcode": "04500",
+        "addressMain": "서울시 계약 테스트로 1",
+        "addressDetail": null
+      }
+    }
+  }
+}

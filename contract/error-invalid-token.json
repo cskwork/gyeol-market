@@ -1,0 +1,17 @@
+{
+  "method": "POST",
+  "path": "/api/auth/refresh",
+  "status": 401,
+  "request": {
+    "refreshToken": "contract-invalid-token"
+  },
+  "body": {
+    "success": false,
+    "error": {
+      "code": "INVALID_TOKEN",
+      "message": "세션이 만료되었습니다.",
+      "path": "/api/auth/refresh",
+      "traceId": "contract-trace-id"
+    }
+  }
+}

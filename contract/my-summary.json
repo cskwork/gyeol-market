@@ -1,0 +1,15 @@
+{
+  "method": "GET",
+  "path": "/api/me/summary",
+  "status": 200,
+  "body": {
+    "success": true,
+    "data": {
+      "pointBalance": 4000,
+      "usableCouponCount": 2,
+      "totalOrderCount": 1,
+      "gradeName": "BRONZE",
+      "name": "계약 검증"
+    }
+  }
+}

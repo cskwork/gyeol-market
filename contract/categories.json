@@ -1,0 +1,30 @@
+{
+  "method": "GET",
+  "path": "/api/categories",
+  "status": 200,
+  "body": {
+    "success": true,
+    "data": {
+      "categories": [
+        {
+          "id": 1,
+          "name": "스킨케어",
+          "slug": "skincare",
+          "children": []
+        },
+        {
+          "id": 2,
+          "name": "메이크업",
+          "slug": "makeup",
+          "children": []
+        },
+        {
+          "id": 3,
+          "name": "헤어/바디",
+          "slug": "hair-body",
+          "children": []
+        }
+      ]
+    }
+  }
+}

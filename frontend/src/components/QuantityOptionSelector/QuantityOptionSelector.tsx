@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import type { ProductOptionSummary } from '@/lib/types'
 import styles from './QuantityOptionSelector.module.css'
 
@@ -37,57 +37,46 @@ export default function QuantityOptionSelector({ options, unitPrice, onChange }:
     // eslint-disable-next-line react-hooks/exhaustive-deps -- run once per product option
   }, [soleOption?.optionId])
 
-  const handleSelect = useCallback(
-    (e: React.ChangeEvent<HTMLSelectElement>) => {
-      const optionId = Number(e.target.value)
-      if (!optionId) return
+  // Notify the parent from the event handler, never inside a setState updater:
+  // updaters run during render, and updating ProductDetailView there makes React
+  // warn "Cannot update a component while rendering a different component".
+  const commit = (next: SelectedOption[]) => {
+    setSelected(next)
+    onChange(next)
+  }
 
-      const opt = options.find((o) => o.optionId === optionId)
-      if (!opt) return
+  const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const optionId = Number(e.target.value)
+    if (!optionId) return
 
-      // Reset selector
-      e.target.value = ''
+    const opt = options.find((o) => o.optionId === optionId)
+    if (!opt) return
 
-      setSelected((prev) => {
-        if (prev.some((s) => s.optionId === optionId)) return prev
-        const next: SelectedOption[] = [
-          ...prev,
-          { optionId, optionName: opt.optionName, optionPrice: opt.optionPrice, quantity: 1 },
-        ]
-        onChange(next)
-        return next
-      })
-    },
-    [options, onChange],
-  )
+    // Reset selector
+    e.target.value = ''
 
-  const updateQty = useCallback(
-    (optionId: number, delta: number) => {
-      setSelected((prev) => {
-        const next = prev.map((s) => {
-          if (s.optionId !== optionId) return s
-          const opt = options.find((o) => o.optionId === optionId)
-          const max = opt?.availableQuantity ?? 99
-          const newQty = Math.max(1, Math.min(max, s.quantity + delta))
-          return { ...s, quantity: newQty }
-        })
-        onChange(next)
-        return next
-      })
-    },
-    [options, onChange],
-  )
+    if (selected.some((s) => s.optionId === optionId)) return
+    commit([
+      ...selected,
+      { optionId, optionName: opt.optionName, optionPrice: opt.optionPrice, quantity: 1 },
+    ])
+  }
 
-  const removeOption = useCallback(
-    (optionId: number) => {
-      setSelected((prev) => {
-        const next = prev.filter((s) => s.optionId !== optionId)
-        onChange(next)
-        return next
-      })
-    },
-    [onChange],
-  )
+  const updateQty = (optionId: number, delta: number) => {
+    commit(
+      selected.map((s) => {
+        if (s.optionId !== optionId) return s
+        const opt = options.find((o) => o.optionId === optionId)
+        const max = opt?.availableQuantity ?? 99
+        const newQty = Math.max(1, Math.min(max, s.quantity + delta))
+        return { ...s, quantity: newQty }
+      }),
+    )
+  }
+
+  const removeOption = (optionId: number) => {
+    commit(selected.filter((s) => s.optionId !== optionId))
+  }
 
   return (
     <div className={styles.root}>

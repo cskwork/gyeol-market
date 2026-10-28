@@ -36,9 +36,13 @@ export default function Login() {
   const navigate = useNavigate()
   const location = useLocation()
   // Pages that bounce anonymous users here pass { from }; send them back after login.
-  const from = (location.state as { from?: string } | null)?.from ?? '/'
-  const [email, setEmail] = useState(IS_DEMO ? DEMO_ACCOUNT.email : '')
-  const [password, setPassword] = useState(IS_DEMO ? DEMO_ACCOUNT.password : '')
+  const navState = location.state as { from?: string; signedUp?: boolean; email?: string } | null
+  const from = navState?.from ?? '/'
+  // Signup redirects here with { signedUp, email } so the new member can log straight in.
+  const signedUp = navState?.signedUp === true
+  const signedUpEmail = signedUp && typeof navState?.email === 'string' ? navState.email : null
+  const [email, setEmail] = useState(signedUpEmail ?? (IS_DEMO ? DEMO_ACCOUNT.email : ''))
+  const [password, setPassword] = useState(IS_DEMO && !signedUpEmail ? DEMO_ACCOUNT.password : '')
   const [errors, setErrors] = useState<FormErrors>({})
   const [globalError, setGlobalError] = useState<string | null>(null)
   const [submitting, setSubmitting] = useState(false)
@@ -92,13 +96,18 @@ export default function Login() {
 
         <h1 className={styles.title}>로그인</h1>
 
-        {IS_DEMO && (
+        {IS_DEMO && !signedUpEmail && (
           <p className={styles.demoHint}>
             데모 계정이 입력되어 있습니다. 그대로 로그인하거나 아무 이메일로 새로 시작할 수 있습니다.
           </p>
         )}
 
         <form className={styles.form} onSubmit={handleSubmit} noValidate>
+          {signedUp && !globalError && (
+            <div className={styles.successNotice} role="status">
+              회원가입이 완료되었습니다. 로그인해주세요.
+            </div>
+          )}
           {globalError && (
             <div className={styles.globalError} role="alert">
               {globalError}

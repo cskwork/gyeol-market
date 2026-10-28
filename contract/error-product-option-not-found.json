@@ -1,0 +1,18 @@
+{
+  "method": "POST",
+  "path": "/api/cart/items",
+  "status": 404,
+  "request": {
+    "productOptionId": 999999,
+    "quantity": 1
+  },
+  "body": {
+    "success": false,
+    "error": {
+      "code": "PRODUCT_OPTION_NOT_FOUND",
+      "message": "상품 옵션을 찾을 수 없습니다.",
+      "path": "/api/cart/items",
+      "traceId": "contract-trace-id"
+    }
+  }
+}

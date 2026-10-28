@@ -1,0 +1,33 @@
+@startuml
+title <size:24>Wishlist</size>
+
+set separator none
+top to bottom direction
+
+<style>
+  root {
+    BackgroundColor: #ffffff
+    FontColor: #444444
+  }
+</style>
+
+!include <C4/C4>
+!include <C4/C4_Context>
+!include <C4/C4_Component>
+
+System_Boundary("LunepickApplication_boundary", "LunepickApplication", $tags="") {
+  Container_Boundary("LunepickApplication.LunepickApplication_boundary", "LunepickApplication", $tags="") {
+    Component(LunepickApplication.LunepickApplication.Wishlist, "Wishlist", $techn="Module", $descr="", $tags="", $link="")
+    Component(LunepickApplication.LunepickApplication.Shared, "Shared", $techn="Module", $descr="", $tags="", $link="")
+    Component(LunepickApplication.LunepickApplication.Catalog, "Catalog", $techn="Module", $descr="", $tags="", $link="")
+  }
+
+}
+
+Rel(LunepickApplication.LunepickApplication.Catalog, LunepickApplication.LunepickApplication.Shared, "depends on", $techn="", $tags="", $link="")
+Rel(LunepickApplication.LunepickApplication.Wishlist, LunepickApplication.LunepickApplication.Shared, "depends on", $techn="", $tags="", $link="")
+Rel(LunepickApplication.LunepickApplication.Wishlist, LunepickApplication.LunepickApplication.Catalog, "uses", $techn="", $tags="", $link="")
+
+SHOW_LEGEND(true)
+hide stereotypes
+@enduml

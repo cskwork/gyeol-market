@@ -59,3 +59,14 @@ export function listMyOrders(
   qs.set('size', String(params.size ?? 10))
   return apiGetPage<MyOrderListItem[]>(`/orders?${qs.toString()}`, signal)
 }
+
+/**
+ * The server answers INSUFFICIENT_POINTS for several causes with one generic
+ * message ("보유 포인트 범위 안에서 정수로 입력해주세요."); name the actual cause.
+ * An in-range integer the server still rejects means the balance changed.
+ */
+export function insufficientPointsMessage(requested: number, orderSubtotal: number): string {
+  if (!Number.isInteger(requested) || requested < 0) return '포인트는 0 이상의 정수로 입력해주세요.'
+  if (requested > orderSubtotal) return '포인트는 주문금액을 초과할 수 없습니다.'
+  return '보유 포인트가 부족합니다. 보유 포인트를 확인한 뒤 다시 입력해주세요.'
+}

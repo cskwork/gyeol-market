@@ -1,0 +1,74 @@
+{
+  "method": "GET",
+  "path": "/api/products/1",
+  "status": 200,
+  "body": {
+    "success": true,
+    "data": {
+      "productId": 1,
+      "brandName": "새봄담",
+      "productName": "키즈 매일 선크림 SPF50+ PA++++",
+      "salePrice": 20000,
+      "originalPrice": 25000,
+      "discountRate": 20,
+      "thumbnailUrl": "/images/products/saebomdam-kids-suncream-spf50-thumb.png",
+      "rating": 0,
+      "reviewCount": 0,
+      "brandLogoUrl": null,
+      "description": "어린이 피부에 안전한 무기자차 선크림으로, 물놀이나 수영 후에도 씻어낼 필요가 없습니다.",
+      "options": [
+        {
+          "optionId": 1,
+          "optionName": "50ml",
+          "optionPrice": 0,
+          "status": "ON_SALE",
+          "availableQuantity": null
+        },
+        {
+          "optionId": 2,
+          "optionName": "100ml",
+          "optionPrice": 5000,
+          "status": "ON_SALE",
+          "availableQuantity": null
+        }
+      ],
+      "images": [
+        {
+          "imageId": 10,
+          "url": "/images/products/saebomdam-kids-suncream-spf50-thumb.png",
+          "sortOrder": 1,
+          "isThumbnail": true
+        },
+        {
+          "imageId": 11,
+          "url": "/images/products/saebomdam-kids-suncream-detail-1.png",
+          "sortOrder": 2,
+          "isThumbnail": false
+        },
+        {
+          "imageId": 12,
+          "url": "/images/products/saebomdam-kids-suncream-detail-2.png",
+          "sortOrder": 3,
+          "isThumbnail": false
+        }
+      ],
+      "categories": [
+        {
+          "categoryId": 1,
+          "categoryName": "스킨케어",
+          "categorySlug": "skincare"
+        },
+        {
+          "categoryId": 2,
+          "categoryName": "메이크업",
+          "categorySlug": "makeup"
+        },
+        {
+          "categoryId": 3,
+          "categoryName": "헤어/바디",
+          "categorySlug": "hair-body"
+        }
+      ]
+    }
+  }
+}

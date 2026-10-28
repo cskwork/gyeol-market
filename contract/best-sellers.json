@@ -1,0 +1,27 @@
+{
+  "method": "GET",
+  "path": "/api/products/best-sellers?page=0&size=1",
+  "status": 200,
+  "body": {
+    "success": true,
+    "data": [
+      {
+        "productId": 5,
+        "brandName": "새봄담",
+        "productName": "약산성 버블 클렌징 폼 150ml",
+        "salePrice": 9900,
+        "originalPrice": 15000,
+        "discountRate": 34,
+        "thumbnailUrl": "/images/products/saebomdam-low-ph-bubble-cleansing-foam-150ml.png",
+        "rating": 0,
+        "reviewCount": 0,
+        "inStock": true
+      }
+    ],
+    "meta": {
+      "page": 0,
+      "size": 1,
+      "total": 13
+    }
+  }
+}
