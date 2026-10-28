@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400" role="img" font-family="'Pretendard','Noto Sans KR',sans-serif">
+  <title>봄 신상 세일 demo banner</title>
+  <defs>
+    <linearGradient id="soft" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F4F4F4"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="400" fill="url(#soft)"/>
+  <rect x="0" y="0" width="1200" height="400" fill="#9BCE26" opacity="0.09"/>
+  <circle cx="1005" cy="82" r="112" fill="#9BCE26" opacity="0.22"/>
+  <circle cx="1092" cy="224" r="148" fill="#FF4452" opacity="0.12"/>
+  <rect x="823" y="236" width="254" height="74" rx="37" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="2"/>
+  <path d="M910 124c74 0 136 51 152 120H758c16-69 78-120 152-120z" fill="#FFFFFF" opacity="0.72"/>
+  <path d="M807 224h207v18H807z" fill="#9BCE26" opacity="0.35"/>
+  <text x="92" y="118" fill="#7DA81E" font-size="22" font-weight="800" letter-spacing="0">NEW SEASON</text>
+  <text x="92" y="199" fill="#181818" font-size="58" font-weight="900" letter-spacing="0">봄 신상 세일</text>
+  <text x="96" y="254" fill="#767676" font-size="27" font-weight="700" letter-spacing="0">새 계절을 위한 데일리 루틴 특가</text>
+  <rect x="96" y="295" width="190" height="10" rx="5" fill="#9BCE26"/>
+  <rect x="304" y="295" width="78" height="10" rx="5" fill="#FF4452" opacity="0.85"/>
+</svg>

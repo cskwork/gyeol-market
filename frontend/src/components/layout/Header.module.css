@@ -1,0 +1,574 @@
+/* ===== GNB (Global Navigation Bar) ===== */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  background: var(--white);
+  border-bottom: 1px solid var(--foil-edge);
+}
+
+/* ---- Top bar ---- */
+.topBar {
+  display: flex;
+  align-items: center;
+  height: var(--gnb-height-mobile);
+  padding: 0 var(--space-5);
+  gap: var(--space-4);
+}
+
+@media (min-width: 1024px) {
+  .topBar {
+    height: var(--gnb-height-desktop);
+    padding: 0 var(--space-8);
+    max-width: var(--container-max);
+    margin: 0 auto;
+  }
+}
+
+/* Logo */
+.logoLink {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Wordmark: "루" set in the display face inside a crimped pouch chip, then the latin name. */
+.logoText {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  line-height: 1;
+  color: var(--ink-900);
+}
+
+.logoMark {
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 32px;
+  padding-top: 3px;
+  font-family: var(--font-display);
+  font-size: 19px;
+  color: var(--white);
+  background: var(--pouch-aqua);
+  border-radius: 0 0 6px 6px;
+  -webkit-mask: radial-gradient(circle at 3px 0, transparent 2.6px, #000 3px) 0 0 / 6px 100% repeat-x;
+  mask: radial-gradient(circle at 3px 0, transparent 2.6px, #000 3px) 0 0 / 6px 100% repeat-x;
+  box-shadow: var(--shadow-card);
+}
+
+.logoWord {
+  font-family: var(--font-display);
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .logoWord {
+    font-size: 17px;
+  }
+}
+
+/* Search bar */
+.searchWrap {
+  flex: 1;
+  max-width: 480px;
+  margin: 0 auto;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .searchWrap {
+    display: block;
+  }
+}
+
+.searchForm {
+  display: flex;
+  align-items: center;
+  background: var(--foil);
+  border: 1px solid var(--foil-edge);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  height: 40px;
+  transition: border-color var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out);
+}
+
+.searchForm:focus-within {
+  background: var(--white);
+  border-color: var(--action);
+}
+
+.searchInput {
+  flex: 1;
+  padding: 0 var(--space-4);
+  font-size: 13px;
+  color: var(--ink-900);
+  background: transparent;
+  border: none;
+  outline: none;
+  height: 100%;
+}
+
+.searchInput::placeholder {
+  color: var(--grey-500);
+}
+
+.searchBtn {
+  width: 40px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--grey-500);
+  transition: color var(--dur-fast) var(--ease-out);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.searchBtn:hover {
+  color: var(--ink-900);
+}
+
+/* Icon actions */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin-left: auto;
+}
+
+/* Phones: the bottom tab bar already carries 마이 / 찜 / 검색, so the top bar keeps
+   only the cart (icon only) next to the menu button. */
+@media (max-width: 767px) {
+  .actions > :not(.cartAction) {
+    display: none;
+  }
+
+  .actions .iconBtnLabel {
+    display: none;
+  }
+}
+
+.iconBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: var(--space-2) var(--space-3);
+  color: var(--ink-700);
+  min-width: var(--touch-target);
+  min-height: var(--touch-target);
+  border-radius: var(--radius-sm);
+  transition: color var(--dur-fast) var(--ease-out);
+  font-size: 10px;
+  line-height: 1;
+}
+
+.iconBtn:hover {
+  color: var(--action);
+}
+
+/* Cart icon wrapper for badge positioning */
+.iconBtnInner {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cartBadge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 3px;
+  background: var(--sale-red);
+  color: var(--white);
+  font-size: 9px;
+  font-weight: var(--fw-bold);
+  line-height: 16px;
+  border-radius: var(--radius-pill);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.iconBtnLabel {
+  font-size: 10px;
+  font-weight: var(--fw-medium);
+  white-space: nowrap;
+}
+
+.mobileSearch {
+  display: grid;
+  place-items: center;
+  width: var(--touch-target);
+  height: var(--touch-target);
+  color: var(--ink-900);
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .mobileSearch {
+    display: none;
+  }
+}
+
+/* Hamburger (mobile) */
+.hamburger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--touch-target);
+  height: var(--touch-target);
+  color: var(--ink-900);
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .hamburger {
+    display: none;
+  }
+}
+
+/* ---- Category nav ---- */
+.catNav {
+  background: var(--white);
+  border-top: 1px solid var(--foil-edge);
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .catNav {
+    display: block;
+  }
+}
+
+.catNavInner {
+  display: flex;
+  align-items: center;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-8);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.catNavInner::-webkit-scrollbar {
+  display: none;
+}
+
+.catItem {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.catLink {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  height: 44px;
+  padding: 0 var(--space-5);
+  font-size: 13px;
+  font-weight: var(--fw-medium);
+  color: var(--ink-700);
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+}
+
+.catLink:hover {
+  color: var(--ink-900);
+  border-bottom-color: var(--pouch, var(--action));
+}
+
+/* Pouch swatch: each category carries its pouch color into the nav. */
+.catSwatch {
+  width: 8px;
+  height: 10px;
+  border-radius: 0 0 2px 2px;
+  background: var(--pouch, var(--grey-300));
+}
+
+/* ---- Mega-menu ---- */
+.mega {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background: var(--white);
+  border: 1px solid var(--grey-200);
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  box-shadow: var(--shadow-hover);
+  padding: var(--space-4) 0;
+  z-index: var(--z-overlay);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-4px);
+  transition: opacity var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+}
+
+.catItem:hover .mega,
+.catItem:focus-within .mega {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.megaLink {
+  display: block;
+  padding: var(--space-3) var(--space-6);
+  font-size: 13px;
+  color: var(--ink-700);
+  transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+  white-space: nowrap;
+}
+
+.megaLink:hover {
+  background: var(--action-tint);
+  color: var(--action-strong);
+}
+
+/* ---- Mobile drawer overlay ---- */
+.drawer::backdrop {
+  background: var(--overlay-dim);
+}
+
+/* ---- Mobile drawer ---- */
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(320px, 90vw);
+  height: 100dvh;
+  max-height: none;
+  max-width: none;
+  margin: 0 0 0 auto;
+  padding: 0;
+  border: 0;
+  color: var(--ink-900);
+  background: var(--white);
+  z-index: var(--z-overlay);
+  overflow-y: auto;
+  transform: translateX(100%);
+  transition: transform var(--dur-base) var(--ease-out);
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+}
+
+.drawer:not([open]) {
+  display: none;
+}
+
+.drawerOpen {
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.drawerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--grey-200);
+  background: var(--ink-900);
+  min-height: var(--gnb-height-mobile);
+  flex-shrink: 0;
+}
+
+.drawerTitle {
+  font-size: 15px;
+  font-weight: var(--fw-bold);
+  color: var(--white);
+}
+
+.drawerClose {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--touch-target);
+  height: var(--touch-target);
+  color: var(--white);
+  border-radius: var(--radius-sm);
+}
+
+.drawerSearch {
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--grey-200);
+  flex-shrink: 0;
+}
+
+.drawerSearchForm {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid var(--grey-200);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  height: 40px;
+  background: var(--white);
+}
+
+.drawerSearchInput {
+  flex: 1;
+  padding: 0 var(--space-4);
+  font-size: 16px;
+  color: var(--ink-900);
+  border: none;
+  outline: none;
+  height: 100%;
+  background: transparent;
+}
+
+.drawerSearchInput::placeholder {
+  color: var(--grey-500);
+}
+
+.drawerSearchBtn {
+  width: 40px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--grey-500);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.drawerNav {
+  padding: var(--space-5);
+  border-bottom: 1px solid var(--grey-200);
+}
+
+.drawerSectionLabel {
+  font-size: 11px;
+  font-weight: var(--fw-bold);
+  color: var(--grey-500);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-4);
+}
+
+.drawerCatGroup {
+  margin-bottom: var(--space-4);
+}
+
+.drawerCatLink {
+  display: block;
+  font-size: 14px;
+  font-weight: var(--fw-semibold);
+  color: var(--ink-900);
+  padding: var(--space-2) 0;
+  min-height: var(--touch-target);
+  line-height: var(--touch-target);
+}
+
+.drawerCatLink:hover {
+  color: var(--action-strong);
+}
+
+.drawerSubList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-3);
+  padding-left: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.drawerSubLink {
+  font-size: 12px;
+  color: var(--grey-500);
+  padding: var(--space-1) var(--space-3);
+  background: var(--grey-100);
+  border-radius: var(--radius-pill);
+  transition: background var(--dur-fast), color var(--dur-fast);
+  white-space: nowrap;
+}
+
+.drawerSubLink:hover {
+  background: var(--action-tint);
+  color: var(--action-strong);
+}
+
+.drawerMember {
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.drawerMemberLink {
+  display: block;
+  font-size: 14px;
+  color: var(--ink-700);
+  padding: var(--space-3) 0;
+  min-height: var(--touch-target);
+  line-height: calc(var(--touch-target) - var(--space-3) * 2);
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: var(--fw-medium);
+  transition: color var(--dur-fast);
+}
+
+.drawerMemberLink:hover {
+  color: var(--action-strong);
+}
+
+/* ---- Mobile bottom tab bar ---- */
+.bottomTab {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-header);
+  background: var(--white);
+  border-top: 1px solid var(--grey-200);
+  display: flex;
+  align-items: stretch;
+  height: 56px;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@media (min-width: 768px) {
+  .bottomTab {
+    display: none;
+  }
+}
+
+.tabItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  color: var(--grey-500);
+  font-size: 10px;
+  font-weight: var(--fw-medium);
+  transition: color var(--dur-fast) var(--ease-out);
+  padding: var(--space-2) 0;
+  line-height: 1;
+}
+
+.tabItem.active {
+  color: var(--action-strong);
+}
+
+.tabItem:hover {
+  color: var(--action-strong);
+}
+
+.tabLabel {
+  font-size: 10px;
+  white-space: nowrap;
+}

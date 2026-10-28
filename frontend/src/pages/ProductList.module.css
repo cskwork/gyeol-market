@@ -1,0 +1,140 @@
+.page {
+  padding-bottom: var(--space-12);
+}
+
+.inner {
+  padding: var(--space-6) var(--space-5) 0;
+}
+
+@media (min-width: 768px) {
+  .inner {
+    padding: var(--space-7) var(--space-8) 0;
+  }
+}
+
+/* ── Category header ─────────────────────────────────────────────────────── */
+.categoryHeader {
+  margin-bottom: var(--space-6);
+}
+
+.categoryMeta {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.categoryTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--ink-900);
+  letter-spacing: -0.01em;
+}
+
+/* Mini pouch in the category's color, carried over from the home rack. */
+.categorySwatch {
+  width: 18px;
+  height: 22px;
+  border-radius: 0 0 4px 4px;
+  background: var(--pouch, var(--pouch-violet));
+  -webkit-mask: radial-gradient(circle at 3px 0, transparent 2.4px, #000 2.8px) 0 0 / 6px 100% repeat-x;
+  mask: radial-gradient(circle at 3px 0, transparent 2.4px, #000 2.8px) 0 0 / 6px 100% repeat-x;
+}
+
+.totalCount {
+  font-size: 13px;
+  color: var(--grey-500);
+}
+
+.totalCountNum {
+  font-weight: var(--fw-semibold);
+  color: var(--ink-700);
+}
+
+/* ── Product grid ────────────────────────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-5);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.skeletonCard {
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius-md);
+}
+
+/* ── Error ───────────────────────────────────────────────────────────────── */
+.errorDetail {
+  font-size: 12px;
+  color: var(--grey-500);
+  margin-top: calc(var(--space-2) * -1);
+}
+
+.retryBtn {
+  margin-top: var(--space-3);
+  padding: var(--space-3) var(--space-7);
+  background: var(--action);
+  color: var(--white);
+  border-radius: var(--radius-pill);
+  font-size: 14px;
+  font-weight: var(--fw-semibold);
+  min-height: var(--touch-target);
+  transition: background var(--dur-fast) var(--ease-out);
+}
+
+.retryBtn:hover {
+  background: var(--action-strong);
+}
+
+/* ── Load more ───────────────────────────────────────────────────────────── */
+.loadMoreWrap {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-8) 0 var(--space-10);
+}
+
+.loadMoreBtn {
+  padding: 0 var(--space-10);
+  height: var(--touch-target);
+  border: 1.5px solid var(--grey-300);
+  border-radius: var(--radius-pill);
+  font-size: 14px;
+  font-weight: var(--fw-semibold);
+  color: var(--ink-700);
+  min-width: 160px;
+  transition: border-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.loadMoreBtn:hover:not(:disabled) {
+  border-color: var(--action);
+  color: var(--action-strong);
+}
+
+.loadMoreBtn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}

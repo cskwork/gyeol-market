@@ -1,0 +1,432 @@
+.page {
+  padding-bottom: var(--space-12);
+}
+
+.intro {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-5) 0;
+}
+
+.intro h1 {
+  font-size: 28px;
+  line-height: 1.3;
+  text-wrap: balance;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.intro p {
+  margin-top: var(--space-4);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink-700);
+}
+
+@media (min-width: 768px) {
+  .intro {
+    padding: var(--space-9) var(--space-8) 0;
+  }
+
+  .intro h1 {
+    font-size: 36px;
+  }
+}
+
+/* ===== Category pouch rack =====
+ * Each root category is a sealed sheet-mask pouch: crimped top edge (scallop mask),
+ * a tear notch on the right, the category name in the display face, and a white
+ * label window holding the category's lead product. Light falls from the top-left.
+ */
+.rack {
+  padding: var(--space-7) 0 0;
+}
+
+@media (min-width: 768px) {
+  .rack {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: var(--space-9) var(--space-8) 0;
+  }
+}
+
+.rackHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-5);
+  padding: 0 var(--space-5);
+  margin-bottom: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .rackHead {
+    padding: 0;
+  }
+}
+
+.rackTitle {
+  font-size: 20px;
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+@media (min-width: 768px) {
+  .rackTitle {
+    font-size: 24px;
+  }
+}
+
+.rackSearch {
+  flex-shrink: 0;
+  font-size: 13px;
+  font-weight: var(--fw-semibold);
+  color: var(--action);
+}
+
+.rackSearch:hover {
+  text-decoration: underline;
+}
+
+/* Mobile: horizontal snap row, each pouch ~78% wide. Desktop: three across. */
+.rackList {
+  display: flex;
+  gap: var(--space-5);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--space-5);
+  padding: var(--space-2) var(--space-5) var(--space-7);
+  scrollbar-width: none;
+}
+
+.rackList::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .rackList {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-7);
+    overflow: visible;
+    padding: var(--space-2) 0 var(--space-7);
+  }
+}
+
+.pouchItem {
+  flex: 0 0 78%;
+  scroll-snap-align: start;
+  /* Shadow lives on the wrapper: the pouch's own mask would clip it. */
+  filter: drop-shadow(6px 10px 14px rgba(21, 22, 26, 0.16));
+  /* Default pouch ink: white on aqua / rose / violet. */
+  --pouch-ink: var(--white);
+  --pouch-ink-soft: var(--white);
+}
+
+.pouchItem:not([data-pouch='marigold']) {
+  /* Deepen the foot of saturated pouches so white caption text clears 4.5:1. */
+  --pouch-scrim: var(--pouch-deep);
+}
+
+.pouchItem[data-pouch='marigold'] {
+  --pouch-ink: var(--ink-900);
+  --pouch-ink-soft: #3b2a0b;
+}
+
+.pouch {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: var(--space-3);
+  /* F-6: fit the image, captions and 44px action on a short 320px viewport. */
+  height: clamp(450px, 58vh, 520px);
+  padding: var(--space-9) var(--space-6) var(--space-6);
+  color: var(--pouch-ink);
+  background:
+    linear-gradient(to top, var(--pouch-scrim, transparent) 0, transparent 34%),
+    linear-gradient(160deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0) 38%),
+    var(--pouch, var(--pouch-violet));
+  border-radius: 4px 4px 22px 22px;
+  /* Crimped seal: scallop row along the top + solid body below it. */
+  -webkit-mask:
+    radial-gradient(circle at 7px 0, transparent 5.5px, #000 6px) 0 0 / 14px 12px repeat-x,
+    linear-gradient(#000, #000) 0 11px / 100% calc(100% - 11px) no-repeat;
+  mask:
+    radial-gradient(circle at 7px 0, transparent 5.5px, #000 6px) 0 0 / 14px 12px repeat-x,
+    linear-gradient(#000, #000) 0 11px / 100% calc(100% - 11px) no-repeat;
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+/* Heat-seal line under the crimp and the tear notch on the right edge. */
+.pouch::before {
+  content: '';
+  position: absolute;
+  inset: 22px 0 auto;
+  height: 0;
+  border-top: 1.5px dashed color-mix(in srgb, var(--pouch-ink) 38%, transparent);
+}
+
+.pouch::after {
+  content: '';
+  position: absolute;
+  top: 34px;
+  right: -7px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--foil);
+}
+
+.pouch:hover {
+  transform: translateY(-4px) rotate(-0.6deg);
+}
+
+.pouch:focus-visible {
+  outline-offset: 4px;
+}
+
+.pouchName {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 11vw, 64px);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+.pouchItem[data-pouch='aqua'] .pouchName {
+  /* F-5: dark ink clears the light upper aqua gradient; foot text keeps its scrim. */
+  color: var(--ink-900);
+}
+
+.pouchCount {
+  justify-self: start;
+  padding: 3px var(--space-4);
+  border-radius: var(--radius-pill);
+  background: var(--white);
+  color: var(--pouch-deep, var(--ink-900));
+  font-size: 12px;
+  font-weight: var(--fw-bold);
+}
+
+.pouchWindow {
+  align-self: center;
+  justify-self: center;
+  width: min(100%, 220px);
+  aspect-ratio: 1;
+  padding: var(--space-3);
+  background: var(--white);
+  border-radius: 14px;
+  box-shadow: inset 0 0 0 1px rgba(21, 22, 26, 0.06), 3px 6px 14px rgba(21, 22, 26, 0.14);
+}
+
+.pouchImg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.pouchFoot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.pouchLeadWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.pouchPrice {
+  font-family: var(--font-display);
+  font-size: 24px;
+  line-height: 1.1;
+  color: var(--pouch-ink);
+}
+
+.pouchLead {
+  min-width: 0;
+  font-size: 13px;
+  font-weight: var(--fw-semibold);
+  color: var(--pouch-ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pouchGo {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--action);
+  color: var(--white);
+  box-shadow: 2px 4px 10px rgba(21, 22, 26, 0.24);
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+.pouch:hover .pouchGo {
+  transform: translateX(3px);
+}
+
+.pouchSkeleton {
+  display: block;
+  height: clamp(450px, 58vh, 520px);
+  border-radius: 4px 4px 22px 22px;
+}
+
+.railsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+  padding: var(--space-8) 0 var(--space-12);
+}
+
+.rail {
+  padding: 0 var(--space-5);
+}
+
+@media (min-width: 768px) {
+  .rail {
+    padding: 0 var(--space-8);
+    max-width: var(--container-max);
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+.railHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-5);
+}
+
+.railTitle {
+  font-size: 18px;
+  font-weight: var(--fw-bold);
+  color: var(--ink-900);
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+@media (min-width: 768px) {
+  .railTitle {
+    font-size: 20px;
+  }
+}
+
+.railMore {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 12px;
+  font-weight: var(--fw-semibold);
+  color: var(--action);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.railMore:hover {
+  text-decoration: underline;
+}
+
+/* Rail scroll wrapper: horizontal on mobile, unset on desktop */
+.railScroll {
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.railScroll::-webkit-scrollbar {
+  display: none;
+}
+
+.railList {
+  display: flex;
+  gap: var(--space-4);
+  list-style: none;
+  padding: var(--space-1) var(--space-1); /* small pad so card shadows don't clip */
+}
+
+.railItem {
+  flex: 0 0 140px;
+  width: 140px;
+}
+
+@media (min-width: 480px) {
+  .railItem {
+    flex: 0 0 160px;
+    width: 160px;
+  }
+}
+
+/* Desktop: switch to grid */
+@media (min-width: 768px) {
+  .railScroll {
+    overflow-x: unset;
+  }
+
+  .railList {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-5);
+  }
+
+  .railItem {
+    flex: none;
+    width: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .railList {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.railEmpty {
+  flex: 1;
+}
+
+/* ===== Skeleton cards ===== */
+
+.skeletonCard {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.skeletonImg {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  border-radius: var(--radius-md);
+}
+
+.skeletonBody {
+  padding: var(--space-3) var(--space-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.skeletonLine {
+  height: 12px;
+  border-radius: var(--radius-sm);
+}
+
+.skeletonLineSm {
+  width: 50%;
+}
+
+.skeletonLineMd {
+  width: 70%;
+}

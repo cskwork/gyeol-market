@@ -1,0 +1,120 @@
+.root {
+  padding: var(--space-6) 0;
+  border-bottom: 1px solid var(--grey-200);
+}
+
+.root:last-child {
+  border-bottom: none;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-3);
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.author {
+  font-size: 13px;
+  font-weight: var(--fw-medium);
+  color: var(--ink-700);
+}
+
+.dateRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.date {
+  font-size: 11px;
+  color: var(--grey-500);
+}
+
+.body {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink-700);
+  margin-bottom: var(--space-4);
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.body.expanded {
+  -webkit-line-clamp: unset;
+}
+
+.expandBtn {
+  font-size: 12px;
+  color: var(--grey-500);
+  text-decoration: underline;
+  margin-bottom: var(--space-4);
+  display: block;
+}
+
+/* Photos */
+.photos {
+  display: flex;
+  gap: var(--space-3);
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-1);
+}
+
+.photos::-webkit-scrollbar {
+  display: none;
+}
+
+.photo {
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* Helpful */
+.helpful {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.helpfulBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 4px var(--space-4);
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--grey-200);
+  font-size: 12px;
+  color: var(--grey-500);
+  transition: border-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+  cursor: pointer;
+}
+
+.helpfulBtn:hover {
+  border-color: var(--action);
+  color: var(--action-strong);
+}
+
+.helpfulBtn.active {
+  border-color: var(--action);
+  color: var(--action-strong);
+  background: var(--action-tint);
+}
+
+.helpfulCount {
+  font-weight: var(--fw-medium);
+}

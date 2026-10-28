@@ -1,0 +1,113 @@
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-5) var(--space-12);
+}
+
+.header {
+  border-bottom: 2px solid var(--action);
+  padding-bottom: var(--space-6);
+  margin-bottom: var(--space-8);
+}
+
+.pageTitle {
+  font-size: 28px;
+  font-weight: var(--fw-extrabold);
+  color: var(--ink-900);
+  letter-spacing: -0.02em;
+}
+
+.pageSubtitle {
+  font-size: 14px;
+  color: var(--grey-500);
+  margin-top: var(--space-2);
+}
+
+.section {
+  margin-bottom: var(--space-10);
+  padding-bottom: var(--space-8);
+  border-bottom: 1px solid var(--grey-200);
+}
+
+.sectionTitle {
+  font-size: 18px;
+  font-weight: var(--fw-bold);
+  color: var(--ink-900);
+  margin-bottom: var(--space-6);
+  letter-spacing: -0.02em;
+  padding: var(--space-2) var(--space-4);
+  background: var(--grey-100);
+  border-left: 3px solid var(--action);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.sectionBody {
+  padding: 0 var(--space-2);
+}
+
+/* Product card grid */
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+  max-width: 720px;
+}
+
+@media (min-width: 640px) {
+  .cardGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Horizontal row of items */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6) var(--space-8);
+  align-items: flex-start;
+}
+
+.label {
+  font-size: 11px;
+  color: var(--grey-500);
+  font-weight: var(--fw-medium);
+  margin-bottom: var(--space-2);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Review */
+.reviewWrap {
+  max-width: 600px;
+  border: 1px solid var(--grey-200);
+  border-radius: var(--radius-md);
+  padding: 0 var(--space-5);
+}
+
+/* Carousel */
+.carouselWrap {
+  max-width: 360px;
+}
+
+/* Filter */
+.filterDemo {
+  border: 1px solid var(--grey-200);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+/* Qty selector */
+.qtyWrap {
+  max-width: 480px;
+}
+
+.jsonPreview {
+  margin-top: var(--space-5);
+  padding: var(--space-4);
+  background: var(--grey-100);
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  color: var(--grey-500);
+  overflow-x: auto;
+  white-space: pre-wrap;
+}

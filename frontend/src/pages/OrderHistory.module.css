@@ -1,0 +1,298 @@
+.page {
+  padding: var(--space-7) 0 var(--space-12);
+}
+
+/* Page header */
+.pageHeader {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-4);
+  padding: 0 var(--space-5) var(--space-6);
+  flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+  .pageHeader {
+    padding: 0 var(--space-8) var(--space-7);
+  }
+}
+
+.heading {
+  font-size: 22px;
+  font-weight: var(--fw-bold);
+  color: var(--ink-900);
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .heading {
+    font-size: 26px;
+  }
+}
+
+.totalCount {
+  font-size: 14px;
+  color: var(--grey-500);
+}
+
+.totalCount strong {
+  color: var(--ink-700);
+  font-weight: var(--fw-semibold);
+}
+
+/* Filter tabs */
+.filterWrap {
+  display: flex;
+  gap: 0;
+  padding: 0 var(--space-5);
+  margin-bottom: var(--space-6);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.filterWrap::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .filterWrap {
+    padding: 0 var(--space-8);
+    margin-bottom: var(--space-7);
+  }
+}
+
+.filterTab {
+  flex-shrink: 0;
+  height: var(--touch-target);
+  padding: 0 var(--space-5);
+  font-size: 14px;
+  font-weight: var(--fw-medium);
+  color: var(--grey-500);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: color var(--dur-base), border-color var(--dur-base);
+  white-space: nowrap;
+}
+
+.filterTab:hover:not(.filterTabActive) {
+  color: var(--ink-700);
+}
+
+.filterTabActive {
+  color: var(--action);
+  border-bottom-color: var(--action);
+  font-weight: var(--fw-semibold);
+}
+
+/* Order list */
+.orderList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0 var(--space-5);
+}
+
+@media (min-width: 768px) {
+  .orderList {
+    padding: 0 var(--space-8);
+  }
+}
+
+/* Order row */
+.orderRow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-6) 0;
+  border-bottom: 1px solid var(--grey-200);
+}
+
+.orderRow:first-child {
+  border-top: 1px solid var(--grey-200);
+}
+
+.orderRowTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.orderDate {
+  font-size: 13px;
+  color: var(--grey-500);
+}
+
+.orderNo {
+  font-size: 13px;
+  color: var(--ink-700);
+  font-weight: var(--fw-medium);
+}
+
+.orderRowBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.orderAmount {
+  font-size: 17px;
+  font-weight: var(--fw-bold);
+  color: var(--ink-900);
+  letter-spacing: -0.02em;
+}
+
+.detailLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  padding: 0 var(--space-5);
+  border: 1.5px solid var(--grey-300);
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: var(--fw-medium);
+  color: var(--ink-700);
+  background: var(--white);
+  transition: border-color var(--dur-base), background var(--dur-base);
+  flex-shrink: 0;
+}
+
+.detailLink:hover {
+  border-color: var(--action);
+  color: var(--action);
+  background: var(--action-tint);
+}
+
+/* Status badges — brand colors, never sale-red for non-price roles */
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  font-weight: var(--fw-semibold);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.statusDefault {
+  background: var(--grey-100);
+  color: var(--grey-500);
+}
+
+.statusPending {
+  background: #fff8e1;
+  color: #e65100;
+}
+
+.statusPaid {
+  background: var(--action-tint);
+  color: var(--action-strong);
+}
+
+.statusPreparing {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+
+.statusShipped {
+  background: #e0f7fa;
+  color: #00838f;
+}
+
+.statusDelivered {
+  background: var(--grey-100);
+  color: var(--ink-700);
+}
+
+.statusCancelled {
+  background: var(--grey-200);
+  color: var(--grey-500);
+}
+
+.statusRefund {
+  background: var(--grey-200);
+  color: var(--grey-500);
+}
+
+/* Skeleton inline blocks */
+.skeletonInline {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--grey-100) 25%, var(--grey-200) 50%, var(--grey-100) 75%);
+  background-size: 200% 100%;
+  border-radius: var(--radius-sm);
+  animation: skeleton-shimmer 1.4s ease-in-out infinite;
+}
+
+/* Load more */
+.loadMoreWrap {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-8) var(--space-5) 0;
+}
+
+.loadMoreBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 var(--space-10);
+  border: 1.5px solid var(--grey-300);
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  font-weight: var(--fw-medium);
+  color: var(--ink-700);
+  background: var(--white);
+  cursor: pointer;
+  transition: border-color var(--dur-base), color var(--dur-base);
+}
+
+.loadMoreBtn:hover {
+  border-color: var(--action);
+  color: var(--action);
+}
+
+/* Retry button */
+.retryBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 var(--space-7);
+  border: 1.5px solid var(--action);
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: var(--fw-semibold);
+  color: var(--action);
+  background: transparent;
+  cursor: pointer;
+  transition: background var(--dur-base);
+}
+
+.retryBtn:hover {
+  background: var(--action-tint);
+}
+
+/* Shop CTA link (empty state) */
+.shopLink {
+  display: inline-flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 var(--space-7);
+  border: 2px solid var(--action);
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  font-weight: var(--fw-semibold);
+  color: var(--action);
+  transition: background var(--dur-base);
+}
+
+.shopLink:hover {
+  background: var(--action-tint);
+}

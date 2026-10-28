@@ -1,0 +1,246 @@
+.page {
+  padding: var(--space-7) 0 var(--space-12);
+}
+
+/* Profile header */
+.profileHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  padding: var(--space-6) var(--space-5) var(--space-7);
+  border-bottom: 1px solid var(--grey-200);
+}
+
+@media (min-width: 768px) {
+  .profileHeader {
+    padding: var(--space-7) var(--space-8) var(--space-8);
+  }
+}
+
+.avatarWrap {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--action-tint);
+  border: 2px solid var(--grey-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--action-strong);
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.gradeRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.gradeBadge {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-pill);
+  background: var(--action);
+  color: var(--white);
+  font-size: 12px;
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.02em;
+}
+
+.welcomeText {
+  font-size: 18px;
+  font-weight: var(--fw-bold);
+  color: var(--ink-900);
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .welcomeText {
+    font-size: 22px;
+  }
+}
+
+/* Stats section */
+.statsSection {
+  display: flex;
+  align-items: stretch;
+  padding: 0 var(--space-5);
+  margin: var(--space-6) 0;
+  background: var(--grey-100);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .statsSection {
+    margin: var(--space-7) var(--space-8);
+  }
+}
+
+.statCard {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-6) var(--space-3);
+  min-height: 80px;
+  justify-content: center;
+}
+
+.statValue {
+  font-size: 20px;
+  font-weight: var(--fw-extrabold);
+  color: var(--ink-900);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.statUnit {
+  font-size: 13px;
+  font-weight: var(--fw-semibold);
+  margin-left: 2px;
+}
+
+.statLabel {
+  font-size: 12px;
+  color: var(--grey-500);
+  font-weight: var(--fw-regular);
+}
+
+.statDivider {
+  width: 1px;
+  background: var(--grey-200);
+  margin: var(--space-5) 0;
+  flex-shrink: 0;
+}
+
+/* Navigation section */
+.navSection {
+  display: flex;
+  flex-direction: column;
+  padding: 0 var(--space-5);
+  gap: var(--space-2);
+}
+
+@media (min-width: 768px) {
+  .navSection {
+    padding: 0 var(--space-8);
+    gap: var(--space-3);
+  }
+}
+
+.navCard {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  padding: var(--space-5) var(--space-5);
+  background: var(--white);
+  border: 1px solid var(--grey-200);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out);
+  min-height: var(--touch-target);
+  text-decoration: none;
+}
+
+@media (hover: hover) {
+  .navCard:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-1px);
+  }
+}
+
+.navIcon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--action-tint);
+  border-radius: var(--radius-md);
+  color: var(--action-strong);
+  flex-shrink: 0;
+}
+
+.navText {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.navTitle {
+  font-size: 15px;
+  font-weight: var(--fw-semibold);
+  color: var(--ink-900);
+}
+
+.navDesc {
+  font-size: 13px;
+  color: var(--grey-500);
+}
+
+.navArrow {
+  color: var(--grey-300);
+  flex-shrink: 0;
+}
+
+/* Retry button */
+.retryBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 var(--space-7);
+  border: 1.5px solid var(--action);
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: var(--fw-semibold);
+  color: var(--action);
+  background: transparent;
+  transition: background var(--dur-base);
+  cursor: pointer;
+}
+
+.retryBtn:hover {
+  background: var(--action-tint);
+}
+
+/* Skeleton states */
+.skeletonWrap {
+  padding: var(--space-6) var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .skeletonWrap {
+    padding: var(--space-7) var(--space-8);
+  }
+}
+
+.skeletonBlock {
+  width: 100%;
+}
+
+.skeletonStatRow {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.skeletonStat {
+  flex: 1;
+  height: 72px;
+  border-radius: var(--radius-lg);
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" role="img" font-family="'Pretendard','Noto Sans KR',sans-serif">
+  <title>헤어·바디 demo category tile</title>
+  <rect width="200" height="200" rx="24" fill="#FFFFFF"/>
+  <rect width="200" height="200" rx="24" fill="#9BCE26" opacity="0.12"/>
+  <rect x="12" y="12" width="176" height="176" rx="22" fill="#FFFFFF" opacity="0.88" stroke="#E5E5E5" stroke-width="2"/>
+  <circle cx="150" cy="48" r="28" fill="#9BCE26" opacity="0.14"/>
+  <path d="M42 95c20-22 39-22 58 0s38 22 58 0" fill="none" stroke="#7DA81E" stroke-width="12" stroke-linecap="round"/><path d="M42 126c20-22 39-22 58 0s38 22 58 0" fill="none" stroke="#9BCE26" stroke-width="12" stroke-linecap="round" opacity="0.72"/>
+  <text x="100" y="178" text-anchor="middle" fill="#181818" font-size="22" font-weight="800" letter-spacing="0">헤어·바디</text>
+</svg>

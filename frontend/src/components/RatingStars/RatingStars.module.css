@@ -1,0 +1,51 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+  position: relative;
+}
+
+.starWrapper {
+  position: relative;
+  display: inline-block;
+  color: var(--grey-200);
+  line-height: 1;
+}
+
+.starFill {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  color: var(--rating-star);
+}
+
+.starSvg {
+  display: block;
+}
+
+.count {
+  color: var(--grey-500);
+  font-weight: var(--fw-regular);
+  white-space: nowrap;
+}
+
+/* Size variants */
+.sm .starWrapper {
+  font-size: 10px;
+}
+.sm .count {
+  font-size: 11px;
+}
+
+.md .starWrapper {
+  font-size: 14px;
+}
+.md .count {
+  font-size: 12px;
+}

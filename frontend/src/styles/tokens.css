@@ -1,0 +1,108 @@
+/*
+ * 루네픽 LUNEPICK design tokens.
+ * World: a rack of sheet-mask pouches. Category pouch colors own whole regions;
+ * the task chrome stays quiet so price and the one action color stay loudest.
+ * Roles are fixed: --action = only things you can press; --sale-red = price and
+ * discount only; --pouch-* = category identity only. Never swap roles.
+ */
+:root {
+  /* Action (pressable things only) */
+  --action: #2442f5;
+  --action-strong: #1a33cc;
+  --action-tint: #eef1ff;
+
+  /* Category pouches */
+  --pouch-aqua: #0e9aa7;
+  --pouch-aqua-deep: #0a6f78;
+  --pouch-rose: #e4467a;
+  --pouch-rose-deep: #a8264f;
+  --pouch-marigold: #f2a12e;
+  --pouch-marigold-deep: #8a5208;
+  --pouch-violet: #6c5ce7;
+  --pouch-violet-deep: #4434b8;
+
+  /* Ground */
+  --foil: #f4f6f8;
+  --foil-edge: #e3e7ec;
+
+  /* Ink / grey */
+  --ink-900: #15161a;
+  --ink-700: #333333;
+  --grey-500: #6b6f76;
+  --grey-300: #bfbfbf;
+  --grey-200: #e5e5e5;
+  --grey-100: #f4f4f4;
+  --white: #ffffff;
+
+  /* Price (red = price/discount only) */
+  --sale-red: #d81b2c;
+  --sale-red-dark: #e5202e;
+
+  /* Functional cues */
+  --delivery-mint: #00c2b3;
+  --coupon-blue: var(--action);
+  --rating-star: #ffb400;
+  --rank-up: #d81b2c;
+  --rank-down: #2c7be5;
+  --rank-steady: #767676;
+  --overlay-dim: rgba(0, 0, 0, 0.55);
+  --badge-best-bg: #181818;
+  --badge-best-fg: #ffffff;
+
+  /* Typography */
+  --font-display: 'Black Han Sans', 'Pretendard Variable', sans-serif;
+  --font-sans: 'Pretendard Variable', 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont,
+    'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+
+  /* Spacing scale (4px base) */
+  --space-1: 2px;
+  --space-2: 4px;
+  --space-3: 8px;
+  --space-4: 12px;
+  --space-5: 16px;
+  --space-6: 20px;
+  --space-7: 24px;
+  --space-8: 32px;
+  --space-9: 40px;
+  --space-10: 48px;
+  --space-12: 64px;
+
+  /* Radius */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 999px;
+
+  /* Layout */
+  --container-max: 1200px;
+  --gnb-height-mobile: 48px;
+  --gnb-height-desktop: 64px;
+  --sticky-bar-height: 56px;
+  --touch-target: 44px;
+
+  /* Elevation */
+  /* One light source, top-left: every shadow falls down-right. */
+  --shadow-card: 2px 3px 8px rgba(21, 22, 26, 0.07);
+  --shadow-hover: 6px 10px 22px rgba(21, 22, 26, 0.14);
+  --shadow-pouch: 8px 14px 28px rgba(21, 22, 26, 0.18);
+  --shadow-sheet: 0 -4px 24px rgba(21, 22, 26, 0.16);
+
+  /* Crimped seal edge: a row of scallops, used as a mask on pouch/card tops. */
+  --crimp: radial-gradient(circle at 5px 0, transparent 4px, #000 4.5px) 0 0 / 10px 100% repeat-x;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 120ms;
+  --dur-base: 200ms;
+
+  --z-header: 100;
+  --z-sticky: 90;
+  --z-overlay: 1000;
+  --z-sheet: 1010;
+}

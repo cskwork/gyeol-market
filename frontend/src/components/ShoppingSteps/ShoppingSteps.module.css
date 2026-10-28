@@ -1,0 +1,35 @@
+.steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-5);
+  margin-bottom: var(--space-5);
+  color: var(--grey-500);
+  font-size: 14px;
+}
+
+.steps li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.steps [aria-current] {
+  color: var(--ink-900);
+  font-weight: var(--fw-semibold);
+}
+
+.number {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--grey-300);
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+}
+
+[aria-current] .number {
+  background: var(--ink-900);
+  border-color: var(--ink-900);
+  color: var(--white);
+}

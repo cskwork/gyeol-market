@@ -1,0 +1,241 @@
+.page {
+  padding: var(--space-10) 0 var(--space-12);
+  min-height: 80vh;
+  display: flex;
+  align-items: flex-start;
+}
+
+.card {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .card {
+    padding: var(--space-10) var(--space-8);
+    border: 1px solid var(--grey-200);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+  }
+}
+
+/* Success icon */
+.iconWrap {
+  animation: popIn 0.4s var(--ease-out) both;
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.title {
+  font-size: 22px;
+  font-weight: var(--fw-extrabold);
+  color: var(--ink-900);
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  font-size: 14px;
+  color: var(--ink-700);
+  text-align: center;
+}
+
+.orderNo {
+  overflow-wrap: anywhere;
+  font-weight: var(--fw-bold);
+  color: var(--ink-900);
+}
+
+.date {
+  font-size: 13px;
+  color: var(--grey-500);
+}
+
+/* Sections */
+.section {
+  width: 100%;
+  border-top: 1px solid var(--grey-200);
+  padding-top: var(--space-5);
+}
+
+.sectionTitle {
+  font-size: 14px;
+  font-weight: var(--fw-bold);
+  color: var(--grey-500);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-4);
+}
+
+/* Items */
+.itemList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: 14px;
+}
+
+.itemMeta {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.itemName {
+  color: var(--ink-900);
+  font-weight: var(--fw-medium);
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.historyLink {
+  min-height: var(--touch-target);
+  display: inline-flex;
+  align-items: center;
+  color: var(--action);
+  font-size: 14px;
+}
+
+.itemOption {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  font-size: 12px;
+  color: var(--grey-500);
+}
+
+.itemQty {
+  color: var(--grey-500);
+  flex-shrink: 0;
+}
+
+.itemPrice {
+  font-weight: var(--fw-semibold);
+  color: var(--ink-900);
+  flex-shrink: 0;
+}
+
+/* Delivery */
+.deliveryName {
+  font-size: 14px;
+  font-weight: var(--fw-semibold);
+  color: var(--ink-900);
+  margin-bottom: var(--space-2);
+}
+
+.deliveryAddr {
+  font-size: 14px;
+  color: var(--ink-700);
+  margin-bottom: var(--space-1);
+}
+
+.deliveryPhone {
+  font-size: 13px;
+  color: var(--grey-500);
+}
+
+/* Price list */
+.priceList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.priceRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: var(--ink-700);
+}
+
+.priceRow dt {
+  color: var(--grey-500);
+}
+
+.discount {
+  color: var(--sale-red);
+  font-weight: var(--fw-semibold);
+}
+
+.freeLabel {
+  color: var(--action);
+  font-weight: var(--fw-semibold);
+}
+
+.totalPayment {
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--grey-200);
+  font-size: 16px;
+  font-weight: var(--fw-bold);
+  color: var(--ink-900);
+}
+
+.totalPayment dt {
+  color: var(--ink-900);
+}
+
+/* CTA */
+.continueLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 52px;
+  padding: 0 var(--space-10);
+  background: var(--action);
+  color: var(--white);
+  border-radius: var(--radius-md);
+  font-size: 16px;
+  font-weight: var(--fw-bold);
+  transition: background var(--dur-base);
+  margin-top: var(--space-3);
+}
+
+.continueLink:hover {
+  background: var(--action-strong);
+}
+
+/* States */
+.errorMsg {
+  color: var(--sale-red);
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: var(--space-5);
+}
+
+.skeleton {
+  height: 500px;
+  background: linear-gradient(90deg, var(--grey-100) 25%, var(--grey-200) 50%, var(--grey-100) 75%);
+  background-size: 200% 100%;
+  border-radius: var(--radius-md);
+  animation: shimmer 1.4s ease-in-out infinite;
+  margin: 0 var(--space-5);
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

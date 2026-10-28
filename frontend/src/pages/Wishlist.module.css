@@ -1,0 +1,186 @@
+.page {
+  padding: var(--space-7) 0 var(--space-12);
+}
+
+/* Page header */
+.pageHeader {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-4);
+  padding: 0 var(--space-5) var(--space-6);
+  flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+  .pageHeader {
+    padding: 0 var(--space-8) var(--space-7);
+  }
+}
+
+.heading {
+  font-size: 22px;
+  font-weight: var(--fw-bold);
+  color: var(--ink-900);
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .heading {
+    font-size: 26px;
+  }
+}
+
+.itemCount {
+  font-size: 14px;
+  color: var(--grey-500);
+}
+
+.itemCount strong {
+  color: var(--ink-700);
+  font-weight: var(--fw-semibold);
+}
+
+/* Product grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+  padding: 0 var(--space-5);
+}
+
+@media (min-width: 480px) {
+  .grid {
+    gap: var(--space-5);
+  }
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0 var(--space-8);
+    gap: var(--space-6);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Card wrapper: layered over ProductCard to add remove button */
+.cardWrapper {
+  position: relative;
+  transition: opacity var(--dur-base);
+}
+
+.cardWrapper.removing {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/*
+ * Remove button: positioned slightly inward from top-right so it sits above the
+ * product image. ProductCard's internal heart button is also top-right (z-index 1).
+ * We use z-index 2 and a slightly smaller size so the X is visually distinct.
+ */
+.removeBtn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 2;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--grey-200);
+  box-shadow: var(--shadow-card);
+  color: var(--grey-500);
+  cursor: pointer;
+  transition: color var(--dur-fast), background var(--dur-fast), transform var(--dur-fast);
+}
+
+.removeBtn:hover:not(:disabled) {
+  color: var(--ink-900);
+  background: var(--white);
+  transform: scale(1.1);
+}
+
+.removeBtn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Skeleton grid cards */
+.cardSkeleton {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.skeletonImage {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  border-radius: var(--radius-md);
+  background: linear-gradient(90deg, var(--grey-100) 25%, var(--grey-200) 50%, var(--grey-100) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.4s ease-in-out infinite;
+}
+
+.skeletonInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: 0 var(--space-1);
+}
+
+.skeletonLine {
+  border-radius: var(--radius-sm);
+  height: 13px;
+  background: linear-gradient(90deg, var(--grey-100) 25%, var(--grey-200) 50%, var(--grey-100) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.4s ease-in-out infinite;
+}
+
+/* Browse / retry CTAs */
+.browseLink {
+  display: inline-flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 var(--space-7);
+  border: 2px solid var(--action);
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  font-weight: var(--fw-semibold);
+  color: var(--action);
+  transition: background var(--dur-base);
+}
+
+.browseLink:hover {
+  background: var(--action-tint);
+}
+
+.retryBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 var(--space-7);
+  border: 1.5px solid var(--action);
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: var(--fw-semibold);
+  color: var(--action);
+  background: transparent;
+  cursor: pointer;
+  transition: background var(--dur-base);
+}
+
+.retryBtn:hover {
+  background: var(--action-tint);
+}

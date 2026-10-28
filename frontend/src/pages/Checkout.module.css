@@ -1,0 +1,569 @@
+.page {
+  padding: var(--space-7) 0 var(--space-12);
+}
+
+.heading {
+  font-size: 22px;
+  font-weight: var(--fw-bold);
+  color: var(--ink-900);
+  margin-bottom: var(--space-7);
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .heading {
+    font-size: 26px;
+  }
+}
+
+/* Layout */
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-7);
+  padding: 0 var(--space-5);
+}
+
+@media (min-width: 768px) {
+  .layout {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--space-8);
+    padding: 0 var(--space-8);
+  }
+}
+
+.leftCol {
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* Section */
+.section {
+  background: var(--white);
+  border: 1px solid var(--grey-200);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+}
+
+.sectionTitle {
+  font-size: 16px;
+  font-weight: var(--fw-bold);
+  color: var(--ink-900);
+  margin-bottom: var(--space-5);
+}
+
+/* Address list */
+.addressList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.addressCard {
+  display: flex;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  border: 2px solid var(--grey-200);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: border-color var(--dur-base);
+}
+
+.addressCard.selected {
+  border-color: var(--action);
+  background: var(--action-tint);
+}
+
+.radioInput {
+  margin-top: 2px;
+  flex-shrink: 0;
+  accent-color: var(--action);
+}
+
+.addressInfo {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.addressName {
+  font-size: 14px;
+  font-weight: var(--fw-semibold);
+  color: var(--ink-900);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.defaultBadge {
+  font-size: 11px;
+  font-weight: var(--fw-semibold);
+  color: var(--action);
+  background: var(--action-tint);
+  border: 1px solid var(--action);
+  border-radius: var(--radius-pill);
+  padding: 1px 6px;
+}
+
+.addressText {
+  font-size: 14px;
+  color: var(--ink-700);
+}
+
+.addressPhone {
+  font-size: 13px;
+  color: var(--grey-500);
+}
+
+.noAddress {
+  font-size: 14px;
+  color: var(--grey-500);
+  margin-bottom: var(--space-5);
+}
+
+.addAddressBtn {
+  display: inline-flex;
+  align-items: center;
+  min-width: var(--touch-target);
+  min-height: var(--touch-target);
+  padding-inline: var(--space-3);
+  font-size: 14px;
+  color: var(--action);
+  font-weight: var(--fw-medium);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: opacity var(--dur-fast);
+}
+
+.addAddressBtn:hover {
+  opacity: 0.75;
+}
+
+/* Address form */
+.addressForm {
+  margin-top: var(--space-5);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--grey-200);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.formRow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.formLabel {
+  font-size: 14px;
+  font-weight: var(--fw-medium);
+  color: var(--ink-700);
+}
+
+.formInput {
+  height: 44px;
+  padding: 0 var(--space-4);
+  border: 1px solid var(--grey-300);
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  color: var(--ink-900);
+  background: var(--white);
+  transition: border-color var(--dur-fast);
+}
+
+.formInput:focus {
+  border-color: var(--action);
+  outline: none;
+}
+
+.formInput:focus-visible {
+  outline: 2px solid var(--action);
+  outline-offset: 2px;
+}
+
+.checkboxRow {
+  display: flex;
+  min-height: var(--touch-target);
+  align-items: center;
+  gap: var(--space-3);
+  font-size: 14px;
+  color: var(--ink-700);
+  cursor: pointer;
+}
+
+.checkboxRow input {
+  accent-color: var(--action);
+}
+
+.formError {
+  font-size: 13px;
+  color: var(--sale-red);
+}
+
+.saveAddressBtn {
+  height: 44px;
+  background: var(--ink-900);
+  color: var(--white);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: var(--fw-semibold);
+  transition: background var(--dur-base);
+}
+
+.saveAddressBtn:hover:not(:disabled) {
+  background: var(--ink-700);
+}
+
+.saveAddressBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Order items */
+.orderItemList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.orderItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: 13px;
+  color: var(--ink-700);
+}
+
+.orderItemName {
+  flex: 1;
+  min-width: 0;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.orderItemQty {
+  color: var(--grey-500);
+  flex-shrink: 0;
+}
+
+.orderItemPrice {
+  font-weight: var(--fw-semibold);
+  color: var(--ink-900);
+  flex-shrink: 0;
+}
+
+/* Summary sidebar */
+.summary {
+  background: var(--white);
+  width: 100%;
+  border: 1px solid var(--grey-200);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+@media (min-width: 768px) {
+  .summary {
+    width: 300px;
+    flex-shrink: 0;
+    position: sticky;
+    top: calc(var(--gnb-height-desktop) + var(--space-5));
+  }
+}
+
+.summaryTitle {
+  font-size: 16px;
+  font-weight: var(--fw-bold);
+  color: var(--ink-900);
+}
+
+.summaryList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: var(--ink-700);
+}
+
+.summaryRow dt {
+  color: var(--grey-500);
+}
+
+.freeLabel {
+  color: var(--action);
+  font-weight: var(--fw-semibold);
+}
+
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--space-4);
+  border-top: 2px solid var(--grey-200);
+}
+
+.totalLabel {
+  font-size: 15px;
+  font-weight: var(--fw-semibold);
+  color: var(--ink-900);
+}
+
+.totalAmount {
+  font-size: 20px;
+  font-weight: var(--fw-extrabold);
+  color: var(--ink-900);
+}
+
+.globalError {
+  font-size: 13px;
+  color: var(--sale-red);
+  text-align: center;
+}
+
+.placeOrderBtn {
+  width: 100%;
+  height: 56px;
+  background: var(--action);
+  color: var(--white);
+  border-radius: var(--radius-md);
+  font-size: 16px;
+  font-weight: var(--fw-bold);
+  transition: background var(--dur-base);
+}
+
+.placeOrderBtn:hover:not(:disabled) {
+  background: var(--action-strong);
+}
+
+.placeOrderBtn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.disclaimer {
+  font-size: 14px;
+  color: var(--grey-500);
+  text-align: center;
+  line-height: 1.5;
+}
+
+.noDiscount {
+  color: var(--grey-500);
+}
+
+.discountAmount {
+  color: var(--sale-red);
+  font-weight: var(--fw-semibold);
+}
+
+/* Coupon picker */
+.couponToggleBtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 44px;
+  padding: 0 var(--space-4);
+  border: 1px solid var(--grey-300);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  color: var(--ink-700);
+  background: var(--white);
+  transition: border-color var(--dur-fast);
+  gap: var(--space-3);
+}
+
+.couponToggleBtn:hover {
+  border-color: var(--action);
+}
+
+.chevronUp {
+  transform: rotate(180deg);
+}
+
+.couponList {
+  margin-top: var(--space-3);
+  border: 1px solid var(--grey-200);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.couponOption {
+  width: 100%;
+  padding: var(--space-4) var(--space-5);
+  text-align: left;
+  font-size: 13px;
+  color: var(--ink-700);
+  background: var(--white);
+  border-bottom: 1px solid var(--grey-200);
+  transition: background var(--dur-fast);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.couponOption:last-child {
+  border-bottom: none;
+}
+
+.couponOption:hover:not(:disabled) {
+  background: var(--grey-100);
+}
+
+.couponOptionSelected {
+  background: var(--action-tint);
+}
+
+.couponOptionDisabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.couponOptionRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.couponDiscount {
+  font-size: 14px;
+  font-weight: var(--fw-semibold);
+  color: var(--sale-red);
+  flex-shrink: 0;
+}
+
+.couponName {
+  font-size: 14px;
+  font-weight: var(--fw-medium);
+  overflow-wrap: anywhere;
+}
+
+.couponMinNote {
+  font-size: 14px;
+  color: var(--grey-500);
+}
+
+/* Point input */
+.pointBalance {
+  font-size: 13px;
+  color: var(--grey-500);
+  margin-bottom: var(--space-3);
+}
+
+.pointBalance strong {
+  color: var(--ink-900);
+}
+
+.pointInputRow {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.pointInput {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+}
+
+.inputError {
+  border-color: var(--sale-red);
+}
+
+.pointAllBtn {
+  height: 44px;
+  padding: 0 var(--space-4);
+  border: 1px solid var(--grey-300);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: var(--ink-700);
+  background: var(--white);
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: border-color var(--dur-fast), background var(--dur-fast);
+}
+
+.pointAllBtn:hover:not(:disabled) {
+  border-color: var(--action);
+  background: var(--action-tint);
+}
+
+.pointAllBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pointApplied {
+  font-size: 14px;
+  color: var(--action-strong);
+  margin-top: var(--space-2);
+  font-weight: var(--fw-medium);
+}
+
+.pageHeader {
+  padding: 0 var(--space-5);
+  margin-bottom: var(--space-7);
+}
+
+.pageHeader .heading {
+  margin-bottom: var(--space-3);
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--touch-target);
+  color: var(--action);
+  font-size: 14px;
+}
+
+.recoveryLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--touch-target);
+  padding: 0 var(--space-6);
+  background: var(--action);
+  color: var(--white);
+  border-radius: var(--radius-md);
+}
+
+@media (min-width: 768px) {
+  .pageHeader {
+    padding: 0 var(--space-8);
+  }
+}
+
+/* Skeleton */
+.skeleton {
+  height: 500px;
+  background: linear-gradient(90deg, var(--grey-100) 25%, var(--grey-200) 50%, var(--grey-100) 75%);
+  background-size: 200% 100%;
+  border-radius: var(--radius-md);
+  animation: shimmer 1.4s ease-in-out infinite;
+  margin: 0 var(--space-5);
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

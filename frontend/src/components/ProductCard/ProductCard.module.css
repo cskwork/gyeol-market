@@ -1,0 +1,167 @@
+/* Card = a small pouch: white body, crimped top edge, one-way shadow. */
+.card {
+  position: relative;
+  height: 100%;
+  background: var(--white);
+  border-radius: 3px 3px var(--radius-lg) var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: -5px 0 auto;
+  height: 6px;
+  background: radial-gradient(circle at 5px 6px, var(--white) 4.5px, transparent 5px) 0 0 / 10px 6px repeat-x;
+  pointer-events: none;
+}
+
+.link {
+  display: block;
+  height: 100%;
+  padding: var(--space-3) var(--space-3) var(--space-2);
+  border-radius: inherit;
+}
+
+@media (hover: hover) {
+  .card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-3px);
+  }
+}
+
+/* Image area — 1:1 aspect, no CLS */
+.imageWrap {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--foil);
+  border-radius: var(--radius-md);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 240ms var(--ease-out);
+}
+
+@media (hover: hover) {
+  .card:hover .image {
+    transform: scale(1.05);
+  }
+}
+
+.imagePlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--grey-300);
+}
+
+/* Badges — top-left stack */
+.badges {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  z-index: 1;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: var(--radius-xs);
+  font-size: 10px;
+  font-weight: var(--fw-bold);
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}
+
+.badgeBest {
+  background: var(--badge-best-bg);
+  color: var(--badge-best-fg);
+}
+
+.badgeDiscount {
+  background: var(--sale-red);
+  color: var(--white);
+}
+
+/* Wishlist heart — top-right */
+.wishlistBtn {
+  position: absolute;
+  top: var(--space-5);
+  right: var(--space-5);
+  z-index: 1;
+  width: var(--touch-target);
+  height: var(--touch-target);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.88);
+  transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+  color: var(--grey-500);
+  box-shadow: 1px 2px 6px rgba(21, 22, 26, 0.12);
+}
+
+.wishlistBtn:hover {
+  background: var(--white);
+  color: var(--sale-red);
+  transform: scale(1.1);
+}
+
+.wishlistBtn.wished {
+  color: var(--sale-red);
+  background: var(--white);
+}
+
+/* Info block */
+.info {
+  padding: var(--space-4) var(--space-1) var(--space-2);
+}
+
+.brand {
+  font-size: 11px;
+  color: var(--grey-500);
+  font-weight: var(--fw-regular);
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.name {
+  word-break: keep-all;
+  font-size: 14px;
+  font-weight: var(--fw-medium);
+  color: var(--ink-700);
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: var(--space-2);
+}
+
+.error {
+  padding: var(--space-3);
+  color: var(--sale-red);
+  font-size: 14px;
+}
+
+.priceRow {
+  margin-bottom: var(--space-2);
+}
+
+.ratingRow {
+  display: flex;
+  align-items: center;
+}

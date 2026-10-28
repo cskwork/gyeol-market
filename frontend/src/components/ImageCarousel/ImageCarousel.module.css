@@ -1,0 +1,131 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* Main image */
+.main {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--grey-100);
+}
+
+.mainImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity var(--dur-fast) var(--ease-out);
+}
+
+.mainImage.fade {
+  opacity: 0;
+}
+
+/* Nav arrows — visible on hover (desktop) */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-700);
+  opacity: 0;
+  transition: opacity var(--dur-fast) var(--ease-out);
+  cursor: pointer;
+  box-shadow: var(--shadow-card);
+}
+
+.main:hover .arrow {
+  opacity: 1;
+}
+
+.arrow:hover {
+  background: var(--white);
+}
+
+.arrowPrev {
+  left: var(--space-3);
+}
+
+.arrowNext {
+  right: var(--space-3);
+}
+
+/* Dots — mobile */
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--grey-300);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out), width var(--dur-fast) var(--ease-out);
+}
+
+.dot.active {
+  background: var(--action);
+  width: 16px;
+  border-radius: var(--radius-pill);
+}
+
+/* Thumbnail strip — desktop */
+.thumbs {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .dots {
+    display: none;
+  }
+
+  .thumbs {
+    display: flex;
+    gap: var(--space-2);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .thumbs::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.thumb {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: border-color var(--dur-fast) var(--ease-out);
+  background: var(--grey-100);
+}
+
+.thumb.active {
+  border-color: var(--action);
+}
+
+.thumbImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}

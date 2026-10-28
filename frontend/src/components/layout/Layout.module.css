@@ -1,0 +1,11 @@
+.main {
+  min-height: 100vh;
+  /* push content below sticky header */
+  padding-bottom: 56px; /* mobile bottom tab bar height */
+}
+
+@media (min-width: 768px) {
+  .main {
+    padding-bottom: 0;
+  }
+}

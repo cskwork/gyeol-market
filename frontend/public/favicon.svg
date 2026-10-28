@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Sheet-mask pouch: crimped top edge, tear notch on the right. Original mark for 루네픽 LUNEPICK. -->
+  <path d="M5 6.5a2 2 0 0 1 4 0a2 2 0 0 1 4 0a2 2 0 0 1 4 0a2 2 0 0 1 4 0a2 2 0 0 1 4 0V27a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2z" fill="#0E9AA7"/>
+  <rect x="5" y="17" width="22" height="12" rx="2" fill="#2442F5"/>
+  <circle cx="27" cy="11" r="1.6" fill="#F4F6F8"/>
+  <path d="M10 22.5h12" stroke="#F4F6F8" stroke-width="2.2" stroke-linecap="round"/>
+</svg>

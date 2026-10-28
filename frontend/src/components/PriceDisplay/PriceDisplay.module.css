@@ -1,0 +1,29 @@
+.root {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-2);
+}
+
+.discount {
+  font-size: 14px;
+  font-weight: var(--fw-bold);
+  color: var(--sale-red);
+  /* tabular nums for price alignment in grids */
+  font-variant-numeric: tabular-nums;
+}
+
+.salePrice {
+  font-size: 15px;
+  font-weight: var(--fw-bold);
+  color: var(--ink-900);
+  font-variant-numeric: tabular-nums;
+}
+
+.original {
+  font-size: 12px;
+  font-weight: var(--fw-regular);
+  color: var(--grey-500);
+  text-decoration: line-through;
+  font-variant-numeric: tabular-nums;
+}
