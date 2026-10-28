@@ -7,3 +7,11 @@ target/
 .env*
 !.env.demo
 !.env.example
+
+# Build output and local auth keys
+src/main/resources/static/app/
+*.pem
+
+# Python bytecode
+__pycache__/
+*.py[cod]

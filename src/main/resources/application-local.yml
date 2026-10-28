@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: ${LUNEPICK_DB_URL:jdbc:postgresql://localhost:5432/lunepick}
+    username: ${LUNEPICK_DB_USER:postgres}
+    password: ${LUNEPICK_DB_PASSWORD:}
+# Native Tomcat consumes forwarded identity only from a same-host development proxy.
+server:
+  tomcat:
+    remoteip:
+      internal-proxies: '127\.0\.0\.1|::1|0:0:0:0:0:0:0:1'
